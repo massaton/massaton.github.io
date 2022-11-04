@@ -1,20 +1,24 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网产品研发模式与效能提升指南 - 4.设计组织架构 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文是一个去除与实际产品和团队的依赖关系，进行泛化、抽象化的一个指南性质的文章，分若干部分来阐述互联网产品的研发模式和提升研发效能的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网产品研发模式与效能提升指南 - 4.设计组织架构 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个优秀的研发团队是自生长的、生态化的、共建的，而不应是制度化的、命令式的、一言堂的。研发模式与技术架构一样，都是一个随着业务的发展而不断演进的过程，大家在这个过程中，清楚团队和个人的目标，并共同进行一些约定，共同维护一个良好的研发生态，让大家可以更高效、更快乐的“搞事情”，从而推动业务和团队生长。 基于互联网产品及工程师的特点（详见前文），通过团队组织架构的设计，组建生态化的研发环境，大家能够更">
 <meta property="og:type" content="article">
 <meta property="og:title" content="互联网产品研发模式与效能提升指南 - 4.设计组织架构">
 <meta property="og:url" content="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/index.html">
 <meta property="og:site_name" content="MASSLESS">
-<meta property="og:description" content="本文是一个去除与实际产品和团队的依赖关系，进行泛化、抽象化的一个指南性质的文章，分若干部分来阐述互联网产品的研发模式和提升研发效能的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。">
+<meta property="og:description" content="一个优秀的研发团队是自生长的、生态化的、共建的，而不应是制度化的、命令式的、一言堂的。研发模式与技术架构一样，都是一个随着业务的发展而不断演进的过程，大家在这个过程中，清楚团队和个人的目标，并共同进行一些约定，共同维护一个良好的研发生态，让大家可以更高效、更快乐的“搞事情”，从而推动业务和团队生长。 基于互联网产品及工程师的特点（详见前文），通过团队组织架构的设计，组建生态化的研发环境，大家能够更">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://massaton.github.io/images/default_top_img.jpg">
-<meta property="article:published_time" content="2020-01-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-27T09:49:12.495Z">
+<meta property="article:published_time" content="2020-01-13T16:00:03.000Z">
+<meta property="article:modified_time" content="2022-11-04T10:13:28.607Z">
 <meta property="article:author" content="Massless">
 <meta property="article:tag" content="Original">
 <meta property="article:tag" content="R&amp;D Mode">
 <meta property="article:tag" content="Efficiency">
 <meta property="article:tag" content="Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://massaton.github.io/images/default_top_img.jpg"><link rel="shortcut icon" href="/images/black_hole.ico"><link rel="canonical" href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://massaton.github.io/images/default_top_img.jpg"><link rel="shortcut icon" href="/images/black_hole.ico"><link rel="canonical" href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "edmwjz0hp4");</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -55,8 +59,8 @@
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2022-10-27 17:49:12'
+  isToc: true,
+  postUpdate: '2022-11-04 18:13:28'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -145,7 +149,222 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网产品研发模式与效能提升指南 - 4.设计组织架构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-01-13T16:00:00.000Z" title="Created 2020-01-14 00:00:00">2020-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>本文是一个去除与实际产品和团队的依赖关系，进行泛化、抽象化的一个指南性质的文章，分若干部分来阐述互联网产品的研发模式和提升研发效能的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。</p>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网产品研发模式与效能提升指南 - 4.设计组织架构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-01-13T16:00:03.000Z" title="Created 2020-01-14 00:00:03">2020-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>一个优秀的研发团队是自生长的、生态化的、共建的，而不应是制度化的、命令式的、一言堂的。研发模式与技术架构一样，都是一个随着业务的发展而不断演进的过程，大家在这个过程中，清楚团队和个人的目标，并共同进行一些约定，共同维护一个良好的研发生态，让大家可以更高效、更快乐的“搞事情”，从而推动业务和团队生长。</p>
+<p>基于互联网产品及工程师的特点（详见前文），通过团队组织架构的设计，组建生态化的研发环境，大家能够更多的参与到技术架构和研发体系的设计和建设中，围绕着共同的目标和原则，持续完善所负责的领域，衍生出一个适宜的、平衡的研发环境。从而，为灵活、高效的工作模式（详见后文）打下基础。</p>
+<p>对于一个多产品的研发团队进行的组织架构设计，如下：</p>
+<h1 id="组织架构图"><a href="#组织架构图" class="headerlink" title="组织架构图"></a>组织架构图</h1><p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84.png" alt="组织架构"></p>
+<p>平台研发中心下设2个虚拟组织和若干个职能组织。</p>
+<p>根据业务领域（产品线）的划分，阶段性的、动态的将若干角色组建成若干跨职能的“产品（业务）敏捷团队”。团队中的产品经理与敏捷教练同时作为推动需求流动的主要监督人，但具有各自的职责和关注的方向，从研发人员池中吸纳符合业务特征的程序员，共同推进组内工作。</p>
+<p>管控组与产品设计组两个职能组织，与各产品敏捷团队形成<strong>矩阵式组织结构</strong>，进行相关统筹和督导的工作。</p>
+<p>研发公线类的组织会根据产品发展，按业务和技术领域的特征，阶段性的组成为新的小组（如数据分析工程研发组、XX中台产品研发组、前端中间件研发组、效能研发组等），通过对业务需求的分析，产生支撑类需求，逐渐形成对共享业务及技术中台&#x2F;平台的沉淀，并反哺业务产品团队。</p>
+<p>2个虚拟组织（管理执行委员会、架构设计委员会）则分别对业务及管理、技术领域产生的关键问题和事件，形成决策和方案。</p>
+<h1 id="组织架构的特点"><a href="#组织架构的特点" class="headerlink" title="组织架构的特点"></a>组织架构的特点</h1><p><strong>轻管理、重协作：</strong></p>
+<ul>
+<li><p><strong>扁平化</strong>，尽可能少的层级关系，通过建立合理的流程，通过职能团队间协作，自下而上的决策和推进。</p>
+</li>
+<li><p><strong>小团队</strong>，组建5-9人的小团队，根据业务的需求及其擅长的领域，解决特定的问题，团队成员相对固定，对领域的熟悉度和经验的积累对于产出效率和质量有积极的影响。</p>
+</li>
+<li><p><strong>自组织</strong>，团队成员通过良好的自我管理能力，并赋予一定的自主权（决策权），在既定环境（组织架构、流程、规范等）的基础上，根据产品的特点和迭代任务工作量，结合兴趣，自驱的组成团队。</p>
+</li>
+<li><p><strong>重协作</strong>，基于合理的流程和可视化工具，拉通前后职能，对齐团队间目标，通过协作，持续且快速的交付价值。</p>
+</li>
+<li><p><strong>多面手</strong>，在发挥团队成员擅长领域能力的基础上，调动成员的主观能动性，促进其在其它领域（角色）的能力发挥，广泛吸收其在各个环节提出的建议、方案、创新和成果；</p>
+</li>
+</ul>
+<p><strong>打造技术驱动力：</strong></p>
+<ul>
+<li><p><strong>中台化</strong>，共享业务和技术的通用领域能力，赋能业务团队，提升质量和效率。对特定的领域，便于深入、优化、沉淀，从而形成技术中台、业务中台、数据中台；</p>
+</li>
+<li><p><strong>池化研发人员</strong>，降低研发技术领域墙、打破角色的边界，增强人员的可复用性 ，消除生产的波峰和波谷。促进研发人员在深入专业领域的基础上，拓展技术广度，增强人员间的技术交集，可被均衡被调配、补位。有助于个人专业领域（深度）及相关领域（广度）的能力提升，增加其职场竞争力。</p>
+</li>
+<li><p><strong>有利于调动人员的主观能动性</strong>，有更多的机会在合适的任务作为“负责人”，实现个人价值的提升；</p>
+</li>
+<li><p><strong>弱化岗位头衔</strong>（对内），以实现和提升用户价值、团队价值、个人价值、个人能力为主；</p>
+</li>
+</ul>
+<h1 id="组织及角色的职能"><a href="#组织及角色的职能" class="headerlink" title="组织及角色的职能"></a>组织及角色的职能</h1><h2 id="虚拟组织"><a href="#虚拟组织" class="headerlink" title="虚拟组织"></a>虚拟组织</h2><p>虚拟组织是在某个事项处理的流程节点或产品的特定发展阶段，根据要处理事项的特点，聚集相关需要的人员，开展工作的组织，常设“主席”角色负责统筹和组织相关工作。</p>
+<h3 id="管理执行委员会"><a href="#管理执行委员会" class="headerlink" title="管理执行委员会"></a>管理执行委员会</h3><p>偏向对“业务及管理领域”的问题进行支撑和决策的虚拟组织，主要负责下列事项的处理和解决：</p>
+<ul>
+<li>对战略解读、关键业务方向、团队管理优化等事项进行支撑和决策，根据需要处理事项的特点，组织相关人员进行专题研究，并形成可执行方案；</li>
+<li>对各组提出的涉及战略、业务、管理方面的执行方案进行评估、指导和决策；</li>
+<li>对需求从等待阶段进入选择阶段进行监督；</li>
+<li>以月度或季度为单位，复盘业务及产品的发展，并作出评估和调整；</li>
+<li>以季度或年度为单位，复盘团队效能，并作出评估和调整；</li>
+</ul>
+<h3 id="架构设计委员会"><a href="#架构设计委员会" class="headerlink" title="架构设计委员会"></a>架构设计委员会</h3><p>或“技术管理委员会”，偏向对“技术领域”的问题进行支撑和决策的虚拟组织，主要负责下列事项的处理和解决：</p>
+<ul>
+<li>对整体的技术方向、技术架构进行决策，支撑产品发展阶段所需技术的选型和预研；</li>
+<li>组织相关人员对产品迭代过程中的技术方案设计进行评估和决策；</li>
+<li>对产品发展过程中出现的关键、核心、复杂的系统设计和技术难点进行研究，并形成可执行方案；</li>
+<li>推进研发能力的提升，营造技术学习氛围，通过各种手段，提升研发团队的专业能力；</li>
+<li>推进系统质量的提升，包括：性能、安全性；</li>
+<li>推进研发质量的提升，提升工程的可维护性，制定相关技术标准及规范，并监督落实；</li>
+</ul>
+<p><em>本质是汇集了团队中各领域架构师、CTO等技术决策者的职能，有利于在全局把控技术发展，统筹规划，形成技术管理的机制。</em></p>
+<h2 id="职能组织"><a href="#职能组织" class="headerlink" title="职能组织"></a>职能组织</h2><p>职能组织是存续周期较长、相对固定的组织，组织中常设职能范围固定的角色，解决处理相关领域的问题。</p>
+<h3 id="管控组"><a href="#管控组" class="headerlink" title="管控组"></a>管控组</h3><p>主要对产品研发过程、机制和团队成员负责，具体岗位职责如下：</p>
+<ul>
+<li><p>管控组长</p>
+<ul>
+<li>主导研发效能的建立、优化及督导，<strong>建设合理的机制，调动大家共同推动价值流动，而不依赖某个组织角色</strong>；</li>
+<li>协助人资，完成对人员激励、提升团队凝聚力等团建相关事项的推进；</li>
+<li>组织并参与管理执行委员会的相关事项；</li>
+<li>协助团队与外部资源的对接、合作；</li>
+</ul>
+</li>
+<li><p>敏捷教练（可多团队复用）</p>
+<blockquote>
+<p>组内可根据产品的不同，也可根据价值流动的阶段（即某几个职能团队），灵活分配敏捷教练。</p>
+<p>可设置独立于敏捷团队的敏捷教练，在多个敏捷团队中复用；也可设置专属于敏捷团队的敏捷教练，可由团队内选择一名成员担任（通常是主程或产品经理）</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/">https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/"><img class="prev-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">互联网产品研发模式与效能提升指南 - 2.几个重要的观念</div></div></a></div><div class="next-post pull-right"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-design-working-mode/index/"><img class="next-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">互联网产品研发模式与效能提升指南 - 5.设计工作模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="互联网产品研发模式与效能提升指南 - 1.引言"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 1.引言</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/" title="互联网产品研发模式与效能提升指南 - 3.形而上"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 3.形而上</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/" title="互联网产品研发模式与效能提升指南 - 2.几个重要的观念"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 2.几个重要的观念</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-design-working-mode/index/" title="互联网产品研发模式与效能提升指南 - 5.设计工作模式"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 5.设计工作模式</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/7-evaluate-and-motivate/index/" title="互联网产品研发模式与效能提升指南 - 7.进行评估和激励"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 7.进行评估和激励</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/" title="互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<ul>
+<li>参与研发效能的建立、优化，并指导和推进其在团队实际工作中的落地；</li>
+<li>分析团队执行过程中的问题，制定有针对性、阶段性的优化解决方案；</li>
+<li>复盘执行过程中的问题及优秀实践，并在组织内传播、宣导；</li>
+<li>对产品研发过程和节奏进行监督，协助或协调组内的任务分配和执行，发现价值流动过程中的问题，并及时推进解决，确保价值流动的顺畅程度处于较高水平；</li>
+<li>在执行过程中的关键流程节点，协调推进相关人员，进行各种形式的有效沟通；</li>
+<li>协助团队应用敏捷工具（看板、站会、复盘等），对齐团队目标；</li>
+</ul>
+</li>
+</ul>
+<h3 id="产品设计组"><a href="#产品设计组" class="headerlink" title="产品设计组"></a>产品设计组</h3><p>主要对如何通过产品实现“用户”及“组织”价值负责，具体岗位职责如下：</p>
+<ul>
+<li><p>产品总监</p>
+<ul>
+<li>主导或组织产品规划的制定和调整 ，根据战略需要，通过头脑风暴、竞品分析、环境分析等手段，制定产品未来的发展规划；</li>
+<li>把控整体的业务架构、应用架构及各业务&#x2F;产品线的发展方向和发展过程；</li>
+<li>根据各业务&#x2F;产品线的发展，结合行业生态，探索业务场景，挖掘用户及商业价值；</li>
+<li>协调组织内外部资源，推进达成战略目标；</li>
+</ul>
+</li>
+<li><p>产品经理（可多团队复用）</p>
+<p><em>组内可根据产品类型的不同，分配多个产品经理，也可进一步根据产品内问题领域（子产品或模块）的不同，细分为专项领域的产品经理。</em></p>
+<ul>
+<li>根据战略、业务及商业目标，设计和规划产品需求；</li>
+<li>使用合适的手段，了解目标用户，对用户的潜在需求进行挖掘和分析，并结合业务发展阶段，制定所负责产品的发展方向和策略；</li>
+<li>管控各个来源的业务类需求（优先级、版本排期），对需求进行选择、分析和澄清，并确保对需求的分析及设计结果在输入开发阶段（需求澄清）的质量保持较高水平；</li>
+<li>跟踪价值流动过程中的价值偏离，并及时解决；</li>
+<li>跟踪价值交付的进度，并对进度异常的需求，协调相关资源解决；</li>
+<li>对即将交付的价值（需求），进行验证、验收；</li>
+</ul>
+</li>
+<li><p>设计师</p>
+<p><em>组内可根据设计的专业领域（视觉&#x2F;UI、体验&#x2F;UE、交互&#x2F;IxD、动画、3D等），分配多个设计师（共享型）；也可根据产品的不同，进一步细分为单个产品内专项领域的设计师（产品型）。</em></p>
+<ul>
+<li>参与产品的需求分析，了解用户的真实诉求，并根据产品的原型设计，完成UI设计；</li>
+<li>完成产品及组织发展过程中的各类素材的创意及设计；</li>
+<li>与前端技术团队合作，提升产品的美观性和用户体验；</li>
+<li>制定产品设计的标准和规范，形成设计的价值观、原则和模式（如组件库），在团队中推广应用，不断提升团队协作效率；</li>
+</ul>
+</li>
+</ul>
+<h2 id="敏捷开发团队"><a href="#敏捷开发团队" class="headerlink" title="敏捷开发团队"></a>敏捷开发团队</h2><p>面向业务产品的敏捷开发团队，由1名敏捷教练、1名产品经理、若干名设计师、若干名程序员组成，团队中的产品经理与敏捷教练同时作为团队的主要监督人，但具有各自的职责和专注的方向，从研发人员池中吸纳符合业务特征的程序员，共同推进组内工作。</p>
+<p>单个产品敏捷团队人员数量一般在5-9人之间（若发现人员需求过多，则首先考虑业务领域的切分是否合理，是否可以进一步的细化产品线）。根据业务领域（产品线）的划分，成立若干个“产品敏捷开发团队”。随着产品的发展，在产品类型的基础上，根据产品内问题领域（子产品或产品的某个模块）的不同，进一步拆分为多个敏捷团队，进而衍化为“XX产品事业部”的组织形态。</p>
+<p>对于需求的分析及设计，在各敏捷团队中进行，而产品需求的软件系统设计工作（仅概要设计，详细设计依然在敏捷开发团队中进行），则根据中台成熟度决定。在中台成熟度较低的阶段，由公线类职能组织主导概要设计，各敏捷开发团队配合，并在概要设计的基础上，完成详细设计，待中台成熟度较高时，由敏捷开发团队主导软件系统设计工作，公线研发职能组织可做协助。</p>
+<p>注意，不建议按照产品所属层级（前台、后台）划分团队，从业务流程的角度来理解，这样做会切断业务流程，从而因过多的信息不一致而产生过多的团队沟通。建议通过业务领域（业务线）的方式来划分，一个业务线内的业务流程可能会与其他业务线有依赖关系，但因这种依赖关系产生的沟通和约定是良性的，可控的。但中台类的产品比较特殊，需要按产品所属层级划分，这样可以最大化的统筹各业务线的需求。</p>
+<p>每个产品敏捷开发团队的职责基本一致，会根据所负责产品的特性和技术栈的不同，产生略微差异。主要对“研发产品相关的前后台工程实现用户价值”负责，主要职责如下：</p>
+<ul>
+<li><p>根据用户及业务对产品的需求，进行需求分析及设计，并对组内开发团队澄清；</p>
+</li>
+<li><p>深入理解业务，协助研发公线职能团队，完成产品的系统分析及设计；</p>
+</li>
+<li><p>完成系统的功能实现，确保产品的交付进度和质量；</p>
+</li>
+<li><p>持续对产品相关工程的代码质量进行管控、优化，确保工程的可维护性和可扩展性；</p>
+</li>
+<li><p>对产品发生的线上问题（异常&#x2F;疑问）进行定位并解决；</p>
+</li>
+<li><p>根据产品的特性，持续优化技术架构及非功能性指标（性能、安全性、可用性、健壮性等）；</p>
+</li>
+<li><p>基于研发统一的技术标准、规范指导及研发模式，根据本团队所做产品及所用技术的特性，建立细化的技术标准、规范及研发模式，提升组内团队输出成果的质量和效能；</p>
+</li>
+</ul>
+<h2 id="研发公线类职能组织"><a href="#研发公线类职能组织" class="headerlink" title="研发公线类职能组织"></a>研发公线类职能组织</h2><p>研发公线类的职能组织，会根据产品发展，按业务和技术领域的特征，阶段性的组成为新的研发公线小组（团队类别属于敏捷团队），如数据分析工程研发组、XX中台产品研发组、前端中间件研发组、XX模块研发组、XX子系统研发组，小组的存续周期可能是1周，也可能在产品的生命周期内一直存在。下面以具备前后台产品规划、前后端分离为开发模式的团队举例，根据产品及技术栈的不同，初始划分为4个通用的小组，每个小组最少有一个固定的负责人，其它人员根据需要，从研发人员池吸纳合适的人员，动态调度至各个小组。</p>
+<p><em>后期，研发公线类小组，会在业务模式相对成熟，且通用领域的抽象程度达到中等水平（需求稳定且持续时），衍化为独立的部门或事业部（如阿里的“共享业务事业部”），专心打造技术中台或业务中台，以支撑各业务线的通用业务，加速业务开发的效能，提升业务线的开发质量。</em></p>
+<p>公线类组织的职能如下：</p>
+<h3 id="后端工程研发组"><a href="#后端工程研发组" class="headerlink" title="后端工程研发组"></a>后端工程研发组</h3><p><em>团队类别属于敏捷团队</em></p>
+<p>主要对“帮助业务开发团队更快、更高质量和持续的交付价值”负责，小组主要职能如下：</p>
+<ul>
+<li>参与、了解各产品敏捷开发团队的需求分析及设计，并从中识别（抽象）公共业务领域和通用领域服务；</li>
+<li>对识别的公共业务和通用领域的需求，进行系统分析及设计，结合业务开发团队的产品发展，进行相关规划；</li>
+<li>基于团队的工作模式，根据设计结果，完成相关系统的功能实现，支持产品开发团队对相关能力的需求；</li>
+<li>设计后端系统的技术架构，搭建并维护后端工程的技术开发框架；</li>
+<li>建设后端工程统一的技术标准及规范指导，提升各业务产品开发团队输出成果的质量；</li>
+<li>支撑各业务产品开发团队，主导或协助其完成后端系统的分析设计工作；</li>
+<li>支撑各业务产品开发团队，持续优化后端系统的技术架构和非功能性指标（性能、安全性、可用性、健壮性等）；</li>
+<li>协助各业务产品开发团队，对后端工程的代码质量进行管控、优化，确保后端工程的可维护性和可扩展性；</li>
+<li>协助各业务产品开发团队，对产品相关后端系统的线上问题，进行定位和解决；</li>
+<li>推进相关中台产品（如：技术中台、业务中台、数据中台）的建设；</li>
+<li>对后端系统相关技术进行预研及追踪，引入适配产品和团队的关键技术，形成方案，并推广应用；</li>
+</ul>
+<h3 id="前端工程研发组"><a href="#前端工程研发组" class="headerlink" title="前端工程研发组"></a>前端工程研发组</h3><p><em>团队类别属于敏捷团队</em></p>
+<p>主要对“帮助业务开发团队更快、更高质量和持续的交付价值”负责，小组主要职能如下：</p>
+<ul>
+<li>设计前端系统的技术架构，搭建并维护前端工程的技术开发框架；</li>
+<li>推进前端技术中台的建设，统一前端工程的技术标准和规范指导，提升各业务产品开发团队输出成果的质量；</li>
+<li>支撑各业务产品开发团队，主导或协助其完成前端系统的分析设计工作；</li>
+<li>支撑各业务产品开发团队，持续优化前端系统的技术架构和非功能性指标（性能、安全性、可用性、健壮性等）；</li>
+<li>协助各业务产品开发团队，对产品相关前端系统的线上问题，进行定位和解决；</li>
+<li>协助各业务产品开发团队，对前端工程的代码质量进行管控、优化，确保前端工程的可维护性和可扩展性；</li>
+<li>对前端系统相关技术进行预研及追踪，引入适配产品和团队的关键技术，形成方案，并推广应用；</li>
+</ul>
+<h3 id="质量控制组"><a href="#质量控制组" class="headerlink" title="质量控制组"></a>质量控制组</h3><p>主要对需求实现结果的质量验收负责，小组主要职能如下：</p>
+<p><em>组内可根据专业领域（功能测试、性能测试、自动化测试、兼容性测试等），分配多个“测试开发工程师”及团队，也可根据产品的不同，进一步细分为某个产品内专项领域的“测试开发工程师”。</em></p>
+<ul>
+<li>参与迭代需求的澄清，并根据需求，设计测试用例，制定测试计划；</li>
+<li>构建测试环境，应用适合团队的测试方法（单元测试、集成测试、回归测试等），保证产品发布质量；</li>
+<li>设计针对不同产品的质量保障和测试策略，通过持续的测试流程和方法创新，利用工程化、体系化的思路方法，构建成熟稳定的质量保证体系，建设并不断完善产品的功能性、安全性、性能、兼容性等测试标准、测试方法、模式及度量指标；</li>
+<li>提升自动化测试的比例和效果，提升测试环节的效率；</li>
+<li>通过DevOps流程中的代码质量检查工具（Sonar等）对工程的扫描结果，进行定期的检查，并推进问题的解决；</li>
+<li>根据系统承载用户的量级增长情况，基于场景范围，完成后端服务的压力测试，并与开发团队协作优化，推进吞吐量达到期望的水平；</li>
+<li>协助定位、解决线上问题；</li>
+</ul>
+<h3 id="运维组"><a href="#运维组" class="headerlink" title="运维组"></a>运维组</h3><p>主要对产品上线后的运行状况及各系统环境负责，小组主要职能如下：</p>
+<p><em>组内可根据运维范围细分负责人及小组，如：产品运维、硬件&#x2F;环境&#x2F;云服务运维、配置运维、DevOps运维等。</em></p>
+<ul>
+<li>主导DevOps实践的建设、优化，维护相关系统，提升研发过程自动化水平；</li>
+<li>对各个产品的各个运行环境，建立监控报警机制，及时发现、定位、反馈问题；</li>
+<li>完成并优化产品部署的相关工作；</li>
+<li>与研发协助，共同优化、提升系统的性能、可用性、安全性、健壮性等非功能性指标；</li>
+<li>协助运营、开发解决线上的疑问或异常；</li>
+</ul>
+<blockquote>
+<p>“测试开发工程师”和“运维开发工程师”是两个相对特殊的职能角色，所做的工作本质上属于研发工程师的工作范畴，均可在敏捷研发组内消化，有很多工作也可以通过自动化的手段来完成，阶段性的独立出固定的小组（本质是属于公线类特定领域的敏捷团队），可以针对相关工作进行细致的规划和沉淀，当模式形成且自动化程度达到较高的水平时，质量控制组和运维组的相关工作职能会合并至研发类的小组、工作流程及模式中，人员也会回归研发人员池，根据需要动态调配。</p>
+</blockquote>
+<h2 id="研发人员池"><a href="#研发人员池" class="headerlink" title="研发人员池"></a>研发人员池</h2><p>研发人员池是对工程师群体的一种概念性划分，不区分具体的角色，统称为“程序员”，通过建立并持续维护“程序员”的能力和技能模型（雷达图），具象化团队成员擅长处理的技术及业务领域，以个体的能力和技能长板，组成团队的能力及技能雷达图，在承接对应需求时，按需求的特点、难易、工作量，将适合的人员动态调度至各个小组，承接相关任务的执行。</p>
+<hr>
+<blockquote>
+<p>本系列文章是一个不依赖实际产品、团队、技术架构的，进行了泛化、抽象化的一个指南性质的文章。将分几部分来阐述“互联网产品的研发模式和提升研发效能”这个主题的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。</p>
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="1.引言">1.引言</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/" title="2.几个重要的观念">2.几个重要的观念</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/" title="3.形而上">3.形而上</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/" title="4.设计组织架构">4.设计组织架构</a>
+
+<br/>
+
+<a href="#">Post not found: developer/manage/mode-and-efficiency-guide/5-1-design-working-mode-issue/index 5.1.工作模式设计——需求处理</a>
+
+<p><br/><a href="#">Post not found: developer/manage/mode-and-efficiency-guide/5-2-design-working-mode-iteration/index 5.2.工作模式设计——迭代规划</a></p>
+<p><br/><a href="#">Post not found: developer/manage/mode-and-efficiency-guide/5-3-design-working-mode-other/index 5.3.工作模式设计——其它事务</a></p>
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/" title="6.建立可视化协作机制">6.建立可视化协作机制</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/7-evaluate-and-motivate/index/" title="7.进行评估和激励">7.进行评估和激励</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/" title="8.附录">8.附录</a>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/">https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-1-design-working-mode-of-issue/index/"><img class="prev-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">互联网产品研发模式与效能提升指南 - 5.1.工作模式设计——需求处理</div></div></a></div><div class="next-post pull-right"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/"><img class="next-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">互联网产品研发模式与效能提升指南 - 3.形而上</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/01/14/developer/manage/single-repo-dev-mode/index/" title="单Repo开发模式"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">单Repo开发模式</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="互联网产品研发模式与效能提升指南 - 1.引言"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 1.引言</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/" title="互联网产品研发模式与效能提升指南 - 2.几个重要的观念"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 2.几个重要的观念</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/" title="互联网产品研发模式与效能提升指南 - 3.形而上"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 3.形而上</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-1-design-working-mode-of-issue/index/" title="互联网产品研发模式与效能提升指南 - 5.1.工作模式设计——需求处理"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 5.1.工作模式设计——需求处理</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-2-design-working-mode-of-other/index/" title="互联网产品研发模式与效能提升指南 - 5.3.工作模式设计——其它事务"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 5.3.工作模式设计——其它事务</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">组织架构图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">组织架构的特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E7%BB%87%E5%8F%8A%E8%A7%92%E8%89%B2%E7%9A%84%E8%81%8C%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">组织及角色的职能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E7%BB%84%E7%BB%87"><span class="toc-number">3.1.</span> <span class="toc-text">虚拟组织</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E6%89%A7%E8%A1%8C%E5%A7%94%E5%91%98%E4%BC%9A"><span class="toc-number">3.1.1.</span> <span class="toc-text">管理执行委员会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A7%94%E5%91%98%E4%BC%9A"><span class="toc-number">3.1.2.</span> <span class="toc-text">架构设计委员会</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%8C%E8%83%BD%E7%BB%84%E7%BB%87"><span class="toc-number">3.2.</span> <span class="toc-text">职能组织</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E6%8E%A7%E7%BB%84"><span class="toc-number">3.2.1.</span> <span class="toc-text">管控组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1%E7%BB%84"><span class="toc-number">3.2.2.</span> <span class="toc-text">产品设计组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E5%9B%A2%E9%98%9F"><span class="toc-number">3.3.</span> <span class="toc-text">敏捷开发团队</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E5%8F%91%E5%85%AC%E7%BA%BF%E7%B1%BB%E8%81%8C%E8%83%BD%E7%BB%84%E7%BB%87"><span class="toc-number">3.4.</span> <span class="toc-text">研发公线类职能组织</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E7%A0%94%E5%8F%91%E7%BB%84"><span class="toc-number">3.4.1.</span> <span class="toc-text">后端工程研发组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E7%A0%94%E5%8F%91%E7%BB%84"><span class="toc-number">3.4.2.</span> <span class="toc-text">前端工程研发组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6%E7%BB%84"><span class="toc-number">3.4.3.</span> <span class="toc-text">质量控制组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%BB%B4%E7%BB%84"><span class="toc-number">3.4.4.</span> <span class="toc-text">运维组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E5%8F%91%E4%BA%BA%E5%91%98%E6%B1%A0"><span class="toc-number">3.5.</span> <span class="toc-text">研发人员池</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

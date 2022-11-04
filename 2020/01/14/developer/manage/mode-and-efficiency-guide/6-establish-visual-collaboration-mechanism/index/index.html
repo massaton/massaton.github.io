@@ -1,20 +1,24 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文是一个去除与实际产品和团队的依赖关系，进行泛化、抽象化的一个指南性质的文章，分若干部分来阐述互联网产品的研发模式和提升研发效能的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个合适的可视化工具有利于促进上下游职能团队的协作，对齐团队目标，发现价值流转过程中的问题，让价值流转的停滞及停滞的原因即时显现。 本章是在上述组织架构和工作模式的基础上，利用GitLab工具进行协作的实践指南。 GitLab是一个面向软件研发团队的全过程管理工具，提供了较为宽松、灵活的机制，自由度较高（主要是通过标签和里程碑），不同团队可根据自己的模式定制。因为其抽象化程度高，模式化程度较低（为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制">
 <meta property="og:url" content="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/index.html">
 <meta property="og:site_name" content="MASSLESS">
-<meta property="og:description" content="本文是一个去除与实际产品和团队的依赖关系，进行泛化、抽象化的一个指南性质的文章，分若干部分来阐述互联网产品的研发模式和提升研发效能的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。">
+<meta property="og:description" content="一个合适的可视化工具有利于促进上下游职能团队的协作，对齐团队目标，发现价值流转过程中的问题，让价值流转的停滞及停滞的原因即时显现。 本章是在上述组织架构和工作模式的基础上，利用GitLab工具进行协作的实践指南。 GitLab是一个面向软件研发团队的全过程管理工具，提供了较为宽松、灵活的机制，自由度较高（主要是通过标签和里程碑），不同团队可根据自己的模式定制。因为其抽象化程度高，模式化程度较低（为">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://massaton.github.io/images/default_top_img.jpg">
-<meta property="article:published_time" content="2020-01-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-27T09:49:31.848Z">
+<meta property="article:published_time" content="2020-01-13T16:00:07.000Z">
+<meta property="article:modified_time" content="2022-11-04T10:14:08.589Z">
 <meta property="article:author" content="Massless">
 <meta property="article:tag" content="Original">
 <meta property="article:tag" content="R&amp;D Mode">
 <meta property="article:tag" content="Efficiency">
 <meta property="article:tag" content="Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://massaton.github.io/images/default_top_img.jpg"><link rel="shortcut icon" href="/images/black_hole.ico"><link rel="canonical" href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://massaton.github.io/images/default_top_img.jpg"><link rel="shortcut icon" href="/images/black_hole.ico"><link rel="canonical" href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "edmwjz0hp4");</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -55,8 +59,8 @@
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2022-10-27 17:49:31'
+  isToc: true,
+  postUpdate: '2022-11-04 18:14:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -145,7 +149,438 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-01-13T16:00:00.000Z" title="Created 2020-01-14 00:00:00">2020-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>本文是一个去除与实际产品和团队的依赖关系，进行泛化、抽象化的一个指南性质的文章，分若干部分来阐述互联网产品的研发模式和提升研发效能的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。</p>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网产品研发模式与效能提升指南 - 6.建立可视化协作机制</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-01-13T16:00:07.000Z" title="Created 2020-01-14 00:00:07">2020-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>一个合适的可视化工具有利于促进上下游职能团队的协作，对齐团队目标，发现价值流转过程中的问题，让价值流转的停滞及停滞的原因即时显现。</p>
+<p>本章是在上述组织架构和工作模式的基础上，利用GitLab工具进行协作的实践指南。</p>
+<p><em>GitLab是一个面向软件研发团队的全过程管理工具，提供了较为宽松、灵活的机制，自由度较高（主要是通过标签和里程碑），不同团队可根据自己的模式定制。因为其抽象化程度高，模式化程度较低（为了满足任何风格团队的管理需求），即便是使用开源版本，团队只需通过系统的规划，合理的约定，灵活的运用，也可以作为辅助中小团队管理的有效工具。</em></p>
+<h1 id="总体结构规划"><a href="#总体结构规划" class="headerlink" title="总体结构规划"></a>总体结构规划</h1><p>将价值流转过程的管理与工程代码的管理分开，按组织结构在GitLab中单独创建Group及Project，通过合理的规划GitLab中管理项目的结构，满足各小组（Project）可自治，也可聚集（Group）统筹管理的目的。</p>
+<p>尽可能放大查看权限，控制修改权限（信息透明，让每一个人清晰知道要做的事情，可以提出自己的观点，组织的活力才能释放出来，从而更高效）。</p>
+<p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/GitLab%E7%BB%93%E6%9E%84%E8%A7%84%E5%88%92.png" alt="GitLab结构规划"></p>
+<p><em>图中发光的即是研发产出的知识成果，是有价值的沉淀。</em></p>
+<h1 id="标签（Labels）规划"><a href="#标签（Labels）规划" class="headerlink" title="标签（Labels）规划"></a>标签（Labels）规划</h1><p>标签是对需求及任务维度的定义，便于筛选和统计，下列未特别标记的，为Group中的标签（在Group中创建，Project共用）。在各个Project中，团队可根据需要灵活增减，但分组中的标签，需要经过统筹规划后增减。</p>
+<h2 id="通用维度"><a href="#通用维度" class="headerlink" title="通用维度"></a>通用维度</h2><ul>
+<li>优先级<ul>
+<li>优先级&#x2F;重要且紧急</li>
+<li>优先级&#x2F;重要但不紧急</li>
+<li>优先级&#x2F;紧急但不重要</li>
+<li>优先级&#x2F;不重要不紧急</li>
+</ul>
+</li>
+<li>复杂度<ul>
+<li>复杂度&#x2F;高</li>
+<li>复杂度&#x2F;中</li>
+<li>复杂度&#x2F;低</li>
+</ul>
+</li>
+<li>辅助类（独立标签）<ul>
+<li>重点关注</li>
+<li>阻碍（当需求或任务在处理过程中出现阻碍时，添加此标签，阻碍消除后，移除此标签）</li>
+</ul>
+</li>
+</ul>
+<h2 id="需求维度"><a href="#需求维度" class="headerlink" title="需求维度"></a>需求维度</h2><ul>
+<li><p>需求分类</p>
+<ul>
+<li>需求分类&#x2F;新功能【#0033CC】</li>
+<li>需求分类&#x2F;功能优化【#0033CC】</li>
+<li>需求分类&#x2F;使用体验【#0033CC】</li>
+<li>需求分类&#x2F;基础架构</li>
+<li>需求分类&#x2F;安全提升</li>
+<li>需求分类&#x2F;工程质量</li>
+<li>需求分类&#x2F;性能优化</li>
+<li>需求分类&#x2F;模式规范</li>
+<li>需求分类&#x2F;研发效能</li>
+<li>需求分类&#x2F;辅助工具</li>
+<li>……（根据需要自行定义）</li>
+</ul>
+<p>支持类&#x2F;非业务类需求使用的颜色：#428BCA</p>
+</li>
+<li><p>所属产品</p>
+<p><em>根据内部产品的划分制定标签，在需求池Project中创建，这样，当需求被细分后，移动到对应的产品中时，标签会自动去除</em></p>
+</li>
+</ul>
+<h2 id="看板维度"><a href="#看板维度" class="headerlink" title="看板维度"></a>看板维度</h2><ul>
+<li><p>卡片类型</p>
+<p><em>对应着实体看板中便签的颜色，与其它标签的颜色最好不要重复，便于在看板中肉眼区分卡片类型</em></p>
+<ul>
+<li><p>卡片&#x2F;需求【#44AD8E】</p>
+<p><strong>看板流转：</strong>【需求池】 -&gt; 待选择 -&gt; 已选择 -&gt; 待澄清 -&gt; 设计中 -&gt; 就绪 -&gt; 开发中 -&gt; 待测试 -&gt; 测试中 -&gt; 待验收 -&gt; 待发布 -&gt; 已发布 -&gt; Close</p>
+</li>
+<li><p>卡片&#x2F;研发任务【#F0AD4E】（任务由需求分解而来）</p>
+<p><strong>看板流转：</strong>就绪 -&gt; 前端处理中 or 后端处理中 or 依赖处理中 -&gt; Close</p>
+</li>
+<li><p>卡片&#x2F;线上异常【#F800F0】（需要立即上线）</p>
+<p><strong>看板流转：</strong>就绪 -&gt; 开发中 -&gt; 待测试 -&gt; 测试中 -&gt; 待验收 -&gt; 待发布 -&gt; 已发布 -&gt; Close</p>
+</li>
+<li><p>卡片&#x2F;缺陷【#FF0000】</p>
+<p><strong>看板流转：</strong>缺陷处理中 -&gt; 待测试 -&gt; 测试中 -&gt; Close</p>
+</li>
+<li><p>卡片&#x2F;规划预研【#A295D6】</p>
+</li>
+<li><p>卡片&#x2F;发布计划【#FFFC79】</p>
+</li>
+</ul>
+</li>
+<li><p>研发任务类</p>
+<p><em>研发任务分类标签冗余了流程标签，是为了在需求分解为任务，但还未进入开发时，标明卡片的类型，用于敏捷教练在将就绪状态的开发任务在进入到开发中状态时，可方便的将任务放到对应的流程看板中。而且，流程类的标签是暂时存在的，随着卡片的流转，流程标签会变换。</em></p>
+<ul>
+<li>任务&#x2F;前端</li>
+<li>任务&#x2F;后端</li>
+<li>任务&#x2F;依赖</li>
+</ul>
+</li>
+<li><p>需求池管理流程【#FFFFFF】（仅在需求池Project中创建）</p>
+<ul>
+<li>流程&#x2F;待筛选</li>
+<li>流程&#x2F;待细分</li>
+<li>流程&#x2F;待选择（用于需求池管理，从收集到内部确认）</li>
+</ul>
+</li>
+<li><p>需求研发流程【#FFFFFF】</p>
+<ul>
+<li>Open（已接受的需求，但未进行处理，等待中）</li>
+<li>流程&#x2F;已选择（明确优先级、排期，进入需求分析的工作）</li>
+<li>流程&#x2F;待澄清</li>
+<li>流程&#x2F;设计中</li>
+<li>流程&#x2F;就绪</li>
+<li>流程&#x2F;开发中</li>
+<li>流程&#x2F;前端处理中</li>
+<li>流程&#x2F;后端处理中</li>
+<li>流程&#x2F;依赖处理中</li>
+<li>流程&#x2F;缺陷处理中</li>
+<li>流程&#x2F;任务完成（仅任务）</li>
+<li>流程&#x2F;任务停滞（仅任务，因外部依赖或内部设计问题等原因，被阻碍，无法正常进展）</li>
+<li>流程&#x2F;待测试</li>
+<li>流程&#x2F;测试中</li>
+<li>流程&#x2F;待验收</li>
+<li>流程&#x2F;待发布</li>
+<li>流程&#x2F;已发布</li>
+<li>Close（已处理完成的需求）</li>
+</ul>
+</li>
+<li><p>规划预研流程【#FFFFFF】（仅在规划预研Project中创建）</p>
+<ul>
+<li>流程&#x2F;待规划</li>
+<li>流程&#x2F;规划进行中</li>
+<li>流程&#x2F;方案初稿完成</li>
+<li>流程&#x2F;方案终稿完成</li>
+<li>流程&#x2F;方案执行中</li>
+</ul>
+</li>
+</ul>
+<h2 id="缺陷维度"><a href="#缺陷维度" class="headerlink" title="缺陷维度"></a>缺陷维度</h2><ul>
+<li><p>Bug类型</p>
+<ul>
+<li>Bug类型&#x2F;功能</li>
+<li>Bug类型&#x2F;用户体验</li>
+<li>Bug类型&#x2F;兼容</li>
+<li>Bug类型&#x2F;性能</li>
+<li>Bug类型&#x2F;安全</li>
+<li>Bug类型&#x2F;规范（用于静态代码扫描）</li>
+<li>Bug类型&#x2F;环境（因环境数据或配置问题，导致此问题）</li>
+</ul>
+</li>
+<li><p>Bug等级</p>
+<ul>
+<li>Bug等级&#x2F;致命的（造成系统或应用程序崩溃、死机、系统挂起，或造成数据丢失，主要功能完全丧失，导致本模块以及相关模块异常等问题。如代码错误，死循环，数据库发生死锁、与数据库连接错误或数据通讯错误，未考虑异常操作，功能错误等。）</li>
+<li>Bug等级&#x2F;严重的（系统的主要功能部分丧失、数据不能保存，系统的次要功能完全丧失。问题局限在本模块，导致模块功能失效或异常退出。如致命的错误声明，程序接口错误，数据库的表、业务规则、缺省值未加完整性等约束条件。）</li>
+<li>Bug等级&#x2F;一般的（次要功能没有完全实现但不影响使用。如提示信息不太准确，或用户界面差，操作时间长，模块功能部分失效等，打印内容、格式错误，删除操作未给出提示，数据库表中有过多的空字段等。）</li>
+<li>Bug等级&#x2F;微小的（使操作者不方便或遇到麻烦，但它不影响功能过的操作和执行，如错别字、界面不规范（字体大小不统一，文字排列不整齐，可输入区域和只读区域没有明显的区分标志），辅助说明描述不清楚。）</li>
+<li>Bug等级&#x2F;建议的（由问题提出人对测试对象的改进意见或测试人员提出的建议、质疑。）</li>
+</ul>
+</li>
+<li><p>Bug优先级</p>
+<ul>
+<li>Bug优先级&#x2F;P1（立即解决，缺陷导致系统几乎不能使用或者测试不能继续，需立即修复）</li>
+<li>Bug优先级&#x2F;P2（高优先级，缺陷严重影响测试，需要优先考虑）</li>
+<li>Bug优先级&#x2F;P3（正常排队，缺陷可以正常排队等待修复）</li>
+<li>Bug优先级&#x2F;P4（低优先级，缺陷可以在开发人员有时间的时候再被修复）</li>
+</ul>
+</li>
+<li><p>Bug状态（处理结果）</p>
+<p>需要修复的Bug无需增加处理结果，通过流程看板的流转管理即可。重新打开次数，通过二次开发的系统，对缺陷在看板间流转的过程进行统计，得出重新打开的次数。</p>
+<ul>
+<li>Bug状态&#x2F;无效（设计如此或经开发验证不是缺陷）</li>
+<li>Bug状态&#x2F;重复（已经提出过的问题，在解决或等待解决）</li>
+<li>Bug状态&#x2F;忽略（存在此Bug，但因说明的原因，而不做修复）</li>
+<li>Bug状态&#x2F;偶发（发现的概率比较低，没有找到必现的路径，开发解决后测试也无法完全验证，一般需要跟踪几个版本没有再次出现才会关闭）</li>
+<li>Bug状态&#x2F;以后处理（因各种因素，以后处理，在评论中说明以后处理的原因，便于跟踪）</li>
+<li>Bug状态&#x2F;无法重现（通常用于外部用户提出的问题，在本地环境验证时，无法重现问题）</li>
+<li>Bug状态&#x2F;外部因素（因外部因素（如浏览器、操作系统、三方依赖）造成的问题）</li>
+</ul>
+</li>
+</ul>
+<h1 id="里程碑（Milestones）规划"><a href="#里程碑（Milestones）规划" class="headerlink" title="里程碑（Milestones）规划"></a>里程碑（Milestones）规划</h1><p>合理应用里程碑，可以便于迭代计划的管理，可视化的、清晰的看到各类需求的前后顺序，迭代完成度，快速筛选出需要关心的卡片。</p>
+<p>在“敏捷团队”分组中，一共有3种里程碑：</p>
+<ol>
+<li>迭代（一次迭代创建一个，迭代类里程碑的命名方式，参考本章后文中的“规范及约定”）</li>
+<li>立即处理（一个小组只创建一个）</li>
+<li>以后处理（一个小组只创建一个）</li>
+</ol>
+<p>可根据敏捷团队的结构、划分维度及版本管理方式，在Group或Project中灵活创建里程碑，例如：</p>
+<ul>
+<li>若敏捷团队是按照产品线来划分的，且每个产品线独立发布，则应在Project中创建里程碑，确保里程碑的独立性。</li>
+<li>若多个敏捷团队需要共同为一个里程碑工作，例如敏捷团队按前后台产品划分，一个版本需要包含前后台功能，则应在Group中创建里程碑，统筹管理组下各个敏捷团队的卡片。</li>
+</ul>
+<p>对于敏捷开发团队来说，一次产品的迭代（发布），创建一个迭代里程碑，可根据产品规划的节奏，预先创建若干个迭代，在需求选择阶段，可提前规划后续版本。“以后处理”用于被产品团队选择的需求，但迭代未明确时使用。“立即处理”用于紧急需求或紧急的线上异常修复时使用。“以后处理”和“立即处理”里程碑长期存在，“迭代”里程碑则随着迭代的开始和结束，创建或关闭。</p>
+<p>下表为建议的里程碑与看板中卡片的相互关系，√代表卡片可以属于该类里程碑。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">迭代类里程碑</th>
+<th align="center">以后处理里程碑</th>
+<th align="center">立即处理里程碑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>卡片&#x2F;需求</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td>卡片&#x2F;研发任务</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>卡片&#x2F;缺陷</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>卡片&#x2F;线上异常</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td>卡片&#x2F;发布计划</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>卡片&#x2F;规划预研</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+<p>在“需求池”Project中，只有1种里程碑：</p>
+<ol>
+<li>以后处理（用于存放已经过筛选，但现阶段不处理的。也可以在看板中建立“以后处理”泳道来管理）</li>
+</ol>
+<p><strong>关于里程碑的操作：</strong></p>
+<p>编辑Milestones时，可以根据迭代方式的不同，设定Start Date和Due Date。在Description中描述迭代目标、重点需求（通过#+卡片编号直接引用即可）等，后续可作为版本说明记录。</p>
+<p>完成Milestone创建后，团队可通过里程碑的Issues看板、Labels统计、进度条等信息辅助迭代计划相关的决策。</p>
+<p>当迭代完成后，记得将其关闭。</p>
+<h1 id="看板（Issue-Boards）规划"><a href="#看板（Issue-Boards）规划" class="headerlink" title="看板（Issue Boards）规划"></a>看板（Issue Boards）规划</h1><p>看板可直观的展示端到端价值流转的过程，让团队可以基于一个入口进行协作，也便于发现流转过程中的问题，及时进行调整。</p>
+<p>在看板应用的角度来说，需求的流转主要可分为5个阶段，需求筛选阶段、需求策划阶段、需求开发阶段、需求测试阶段、需求交付阶段。</p>
+<blockquote>
+<p>看板的规划也可根据团队中的各个角色划分，一个角色或几个相关角色一个看板</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/">https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/7-evaluate-and-motivate/index/"><img class="prev-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">互联网产品研发模式与效能提升指南 - 7.进行评估和激励</div></div></a></div><div class="next-post pull-right"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/"><img class="next-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">互联网产品研发模式与效能提升指南 - 8.附录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="互联网产品研发模式与效能提升指南 - 1.引言"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 1.引言</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/" title="互联网产品研发模式与效能提升指南 - 3.形而上"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 3.形而上</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/" title="互联网产品研发模式与效能提升指南 - 2.几个重要的观念"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 2.几个重要的观念</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/" title="互联网产品研发模式与效能提升指南 - 4.设计组织架构"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 4.设计组织架构</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-design-working-mode/index/" title="互联网产品研发模式与效能提升指南 - 5.设计工作模式"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 5.设计工作模式</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/7-evaluate-and-motivate/index/" title="互联网产品研发模式与效能提升指南 - 7.进行评估和激励"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 7.进行评估和激励</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<p>上级管理看板放在Group中，根据统筹管理的需要，按照需要筛选的标签，灵活设定、更改看板即可，如：按需求的分类（查看需求占比）、按关键流程节点（查看需求流转进度）。</p>
+<h2 id="需求池看板"><a href="#需求池看板" class="headerlink" title="需求池看板"></a>需求池看板</h2><p>主要用于对原始需求进行细分</p>
+<ul>
+<li>筛选阶段看板 —— 侧重于管理需求的流转，多用于需求管理团队</li>
+<li>需求优先级看板 —— 可一目了然不同优先级需求的情况</li>
+</ul>
+<p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/GitLab%E9%9C%80%E6%B1%82%E6%B1%A0%E7%9C%8B%E6%9D%BF%E8%A7%84%E5%88%92.png" alt="GitLab需求池看板规划"></p>
+<p>需求池管理主要是将各个渠道收集来的需求，按约定的格式，录入需求池，经过研讨，判定需求的有效性，并对有效需求进行拆解，然后将需求进行分类、归口的一个过程，是产品对需求进行选择前的一次筛选。主要是通过产品的价值观、公司战略、团队资源、可行性等因素，结合主观、讨论、调研等手段，判定需求的有效性，从而将筛选出来的有效需求，再基于业务架构、应用架构进行拆解、细分，最后流转至各个产品线的需求选择阶段。</p>
+<p>通过看板和卡片，配合需求标签，来管理需求池的过程：</p>
+<ol>
+<li><p>在各个需求来源建立需求收集的渠道（可参考前文中“需求来源的多样性”章节的需求来源）；</p>
+</li>
+<li><p>各收集渠道在“需求协作管理”的“需求池”中，按模板规范创建卡片（Issues），并将<strong>原始需求</strong>在卡片中<strong>描述清楚</strong>；</p>
+<p><em>需求池可对内部全员开放，以便收集全员需求。外部可通过人员或系统的对接，将外部渠道反馈的需求收集到“需求池”中。</em></p>
+</li>
+<li><p>为卡片设置基础标签（卡片类型标签、需求分类标签、优先级标签），若已明确需求所属产品，可以添加“所属产品标签”，并放入“待筛选”看板；</p>
+<p><em>这个阶段添加的标签都是建议性的，不是最终的。</em></p>
+</li>
+<li><p>“管理执行委员会”，阶段性组织<strong>需求筛选会</strong>，基于业务、战略规划，在“筛选阶段看板”中，按需求优先级由高到低（通过优先级标签在看板中筛选），或者，在“需求优先级看板”中，按“流程&#x2F;待筛选”进行过滤后，对“待筛选”中的需求有效性进行判断：</p>
+<ul>
+<li>判定有效的需求，流转至“待细分”；</li>
+<li>判定无效的需求，在评论中写明原因，流转至“Close”看板（或增加其它标签管理）；</li>
+<li>判定现阶段不处理的需求，流转至Open看板，并设置“以后处理”里程碑；</li>
+</ul>
+<p><em>也可将需求筛选工作放给“产品团队”统筹，最后组织对筛选结果的评审。</em></p>
+</li>
+<li><p>“产品设计组”由产品总监和各产品线负责人阶段性的组织<strong>需求分析研讨会</strong>，基于公司战略、业务架构、应用架构，对“待细分”看板中的需求进行拆解、细分（单个需求的粒度尽可能小，相关性需求可通过约定的方式进行关联），然后，对需求相关的业务口（如：业务运营）澄清需求，并收集业务口对前台产品需求的后台产品需求（如：要如何运营这个功能），最后，将细分后的需求移动到“待选择”看板，并将需求move到对应的产品敏捷开发组Project中（这波操作结束后，产品敏捷开发团队就可以在自己的看板中，看到进入待选择的需求，进而安排需求选择的相关工作）。</p>
+<p><em>当需求池中的卡片被选择后，要进入后续研发流程时，可以使用Move issue，将卡片移动到对应的敏捷团队看板中。</em></p>
+</li>
+</ol>
+<h2 id="敏捷团队看板"><a href="#敏捷团队看板" class="headerlink" title="敏捷团队看板"></a>敏捷团队看板</h2><p>在保留总看板（包含全部流转）的基础上，依据4个阶段，冗余4个阶段看板，有助于各阶段的团队角色对手中任务的专注，方便小组内使用。</p>
+<ul>
+<li>总看板（包含了从待选择到Close的所有看板）</li>
+<li>策划阶段看板（从待选择到就绪，多用于产品团队、设计团队）</li>
+<li>开发阶段看板（从就绪到待测试，多用于开发团队、任务排期）</li>
+<li>测试阶段看板（从待测试到待验收，多用于测试团队）</li>
+<li>交付阶段看板（从待发布到Close，多用于产品及运维团队）</li>
+</ul>
+<p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/GitLab%E6%95%8F%E6%8D%B7%E5%9B%A2%E9%98%9F%E7%9C%8B%E6%9D%BF%E8%A7%84%E5%88%92.png" alt="GitLab敏捷团队看板规划"></p>
+<p>不同卡片在看板中的处理过程如上图中的箭头所示。</p>
+<p>需求卡片在看板的流转过程中，处理人会根据进入的看板阶段不同而变化。按需求的流转顺序，依次为“负责需求开发的产品经理”，“对需求进行系统分析设计的工程师”，“敏捷教练”会在整个流转过程中负责需求的任务排期、分解等。需求分解为开发任务后的任务卡片、依赖卡片，以及测试过程中产生的缺陷卡片，处理人为团队中的某位“程序员”，“测试工程师”会在需求“提测”后在测试阶段看板中负责卡片的处理。</p>
+<p>团队每个人都可基于看板，在每日站会中明确卡片的推进目标，发现过程中的问题，明确并处理团队或需求之间的协作点。</p>
+<p>通常，团队会在每日的站会上，检视需求流动的状态，以及流动过程中的问题，关注并即时解决这些问题，让需求更顺畅和快速的流动并交付，价值流动中最常见的问题：</p>
+<ul>
+<li><strong>瓶颈</strong> ：某个环节流动不畅时，需求就会积压形成瓶颈。关注和解决瓶颈，价值才能够顺畅地流动。</li>
+<li><strong>中断</strong>：指某个步骤供给不足，价值流动出现中断，它意味着上游可能存在瓶颈。</li>
+<li><strong>需重点关注的需求</strong> ：指涉及重大的商业利益或风险的重点需求，这是团队要特别关注，在看板应该重点标记。</li>
+<li><strong>被阻碍的需求</strong> ：指因为外部（如依赖）或内部（如设计问题）原因无法正常进展的需求。</li>
+<li><strong>缺陷</strong>：缺陷是阻碍需求交付以及返工的重要原因，应该被凸显，并优先解决。</li>
+<li><strong>即将或已经到期的需求</strong> ：有明确的完成时间要求的需求，如果它们即将或已经到期，就应该被凸显，并给与特别关注。</li>
+</ul>
+<h2 id="规划预研看板"><a href="#规划预研看板" class="headerlink" title="规划预研看板"></a>规划预研看板</h2><p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/GitLab%E8%A7%84%E5%88%92%E9%A2%84%E7%A0%94%E7%9C%8B%E6%9D%BF%E8%A7%84%E5%88%92.png" alt="GitLab规划预研看板规划"></p>
+<p>方案执行的工作量小，且由一个人完成时，卡片需放在”方案执行中“，以便跟踪。若方案执行的工作量较大，或由多人进行，需要协作时（放入已有小组或单独成立了小组），则方案的执行过程及任务由小组的看板管理，这里的“规划预研卡片”可以直接关闭。</p>
+<h1 id="测试管理规划"><a href="#测试管理规划" class="headerlink" title="测试管理规划"></a>测试管理规划</h1><p>测试团队独立在Project中管理测试用例（可复用）、测试计划的执行时，需要对流程、里程碑及看板进行约定，便于测试组内的协调。</p>
+<h2 id="标签规划"><a href="#标签规划" class="headerlink" title="标签规划"></a>标签规划</h2><p>Group中的标签：</p>
+<ul>
+<li><p>流程</p>
+<ul>
+<li>基准压测</li>
+<li>未通过</li>
+<li>处理中</li>
+<li>待验证</li>
+<li>已通过</li>
+</ul>
+</li>
+</ul>
+<p>Project中的标签：</p>
+<ul>
+<li><p>用例分类</p>
+<p><em>依据用例所属产品的功能模块或业务场景的划分，细化用例，方便管理；</em></p>
+</li>
+</ul>
+<h2 id="里程碑规划"><a href="#里程碑规划" class="headerlink" title="里程碑规划"></a>里程碑规划</h2><p>在测试管理分组中，有2种里程碑：</p>
+<ul>
+<li>功能测试计划（通常每次产品迭代，创建一个）</li>
+<li>性能测试计划（每次性能测试，创建一个）</li>
+</ul>
+<p><em>里程碑的命名方式，参考本章后文中的“规范及约定”</em></p>
+<h2 id="看板规划"><a href="#看板规划" class="headerlink" title="看板规划"></a>看板规划</h2><ul>
+<li><p>功能测试看板</p>
+<p>Open | 已通过 | Close</p>
+</li>
+<li><p>性能测试看板</p>
+<p>Open | 基准压测 | 未通过 | 处理中 | 待验证 | 已通过 | Close</p>
+</li>
+</ul>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>关于测试用例、性能测试的管理，以下几个点需要进一步细致考虑：</p>
+<ul>
+<li>单独规划流程看板（第一次、第二次的），如何对用例做分类（是否应该以功能或业务场景建立测试用例，需求与用例存在使用关系，一个需求可能需要执行一个或一组功能测试用例）</li>
+<li>争取做到定好了用例，可以让任何人执行的效果，考虑测试结果的管理与缺陷的关联</li>
+<li>如何确保关键用例可以在集成至测试环境时，自动完成测试</li>
+<li>性能测试过程：根据阈值的设定作为优化基准，分析性能瓶颈，圈定需要优化的业务场景范围，性能测试配合，完成优化工作（使用哪些手段，怎么优化，预算多少）</li>
+<li>性能阈值包含：用户总量（分析用户基础数据总量）、日活用户总量（分析每日增加数据总量）、并发用户数（分析具体业务场景用到的服务需要支撑的吞吐量）</li>
+</ul>
+<h1 id="规范及约定"><a href="#规范及约定" class="headerlink" title="规范及约定"></a>规范及约定</h1><ul>
+<li><p>标签统一采用多级方式定义，以“&#x2F;”作为分隔符，即：“分类&#x2F;标签”。</p>
+</li>
+<li><p>里程碑的命名方式</p>
+<p><em>根据迭代方式的不同，使用不同的命名规则</em></p>
+<p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/%E8%A1%A8%E6%A0%BC-%E9%87%8C%E7%A8%8B%E7%A2%91%E7%9A%84%E5%91%BD%E5%90%8D%E6%96%B9%E5%BC%8F.png" alt="表格-里程碑的命名方式"></p>
+<p>固定版本的发布方式本意是固定了版本也就固定了需求，而持续交付的发布方式想表达的是一种更灵活的迭代方式，可以随时调整需求的加入和退出，并做好了“随时”发布的准备。</p>
+<p>持续交付的里程碑仅设置最近要开始的里程碑的开始时间，结束时间不设置，其它里程碑均不设置开始和结束时间，因为结束的时间会随着过程中产生的问题、变化而不确定。</p>
+</li>
+<li><p>卡片标题的编写规范</p>
+<p><img src="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/%E8%A1%A8%E6%A0%BC-%E5%8D%A1%E7%89%87%E6%A0%87%E9%A2%98%E7%9A%84%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83.png" alt="表格-卡片标题的编写规范"></p>
+</li>
+<li><p>卡片的内容（在GitLab的Project Templates功能中固化模版，便于创建卡片是快速在Description区中应用模版）</p>
+<p><strong>业务类需求卡片</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 1. 需求说明</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 1.1. 现状/背景描述</span></span><br><span class="line">「现状是什么样的？是否存在什么问题？」</span><br><span class="line"></span><br><span class="line"><span class="section">### 1.2. 需求描述</span></span><br><span class="line">「描述需求的：用户故事（who、what、value）、业务流程、其它细节」</span><br><span class="line"></span><br><span class="line"><span class="section">### 1.3. 提出该需求的原因</span></span><br><span class="line">「遇到了什么问题，基于什么动机，提出该需求？」</span><br><span class="line"></span><br><span class="line"><span class="section">### 1.4. 想要达到的业务目标是什么</span></span><br><span class="line">「满足该需求后，能达到什么样的业务目标」</span><br><span class="line"></span><br><span class="line"><span class="section">### 1.5. 需求级别</span></span><br><span class="line">「提出人自评优先级」</span><br><span class="line"><span class="bullet">*</span> [ ]  重要且紧急</span><br><span class="line"><span class="bullet">*</span> [ ]  重要但不紧急</span><br><span class="line"><span class="bullet">*</span> [ ]  紧急但不重要</span><br><span class="line"><span class="bullet">*</span> [ ]  不紧急也不重要</span><br><span class="line"></span><br><span class="line"><span class="section">## 2. 产品设计（产品中心）</span></span><br><span class="line"><span class="section">### 2.1. 原型设计</span></span><br><span class="line">「图文或链接，策划完成后填写」</span><br><span class="line"></span><br><span class="line"><span class="section">### 2.2. UI设计</span></span><br><span class="line">「图文或链接，产品UI设计完成后填写」</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; <span class="strong">**模板说明：业务类需求**</span></span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; 必要标签：卡片</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; 可选标签：优先级、需求分类</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>线上异常卡片</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 详细描述</span></span><br><span class="line">TODO 对缺陷的图文描述；关键信息；</span><br><span class="line"></span><br><span class="line"><span class="section">### 环境信息</span></span><br><span class="line">[所属环境]：</span><br><span class="line"><span class="bullet">*</span> [ ] 开发</span><br><span class="line"><span class="bullet">*</span> [ ] 测试</span><br><span class="line"><span class="bullet">*</span> [ ] 预产</span><br><span class="line"><span class="bullet">*</span> [ ] 生产</span><br><span class="line">[所属产品]：</span><br><span class="line">[产品版本]：</span><br><span class="line">[终端型号]：</span><br><span class="line"></span><br><span class="line"><span class="section">### 重现步骤</span></span><br><span class="line">[步骤描述]：</span><br><span class="line">[期望结果]：</span><br><span class="line">[实际结果]：</span><br><span class="line"></span><br><span class="line"><span class="section">### 原因定位</span></span><br><span class="line">TODO 可选</span><br><span class="line"></span><br><span class="line"><span class="section">### 修复建议</span></span><br><span class="line">TODO 可选</span><br></pre></td></tr></table></figure>
+
+<p>还可以为研发任务、缺陷等卡片类型定义建议的描述模板。</p>
+</li>
+<li><p>标签的颜色</p>
+<p><em>通过标签颜色的规划（红色），在看板中可更醒目的体现价值流动过程中的问题，红色标签越多的，越需要尽快解决价值流转的阻断，其它标签不能使用红色系</em></p>
+<p><strong>设置为红色的标签</strong></p>
+<ul>
+<li>卡片&#x2F;缺陷</li>
+<li>卡片&#x2F;紧急需求</li>
+<li>卡片&#x2F;线上异常</li>
+<li>流程&#x2F;任务停滞</li>
+<li>优先级&#x2F;重要且紧急</li>
+<li>优先级&#x2F;紧急但不重要</li>
+<li>Bug等级&#x2F;致命的</li>
+<li>Bug等级&#x2F;严重的</li>
+<li>Bug优先级&#x2F;P1</li>
+<li>Bug优先级&#x2F;P2</li>
+<li>重点关注</li>
+<li>阻碍</li>
+</ul>
+</li>
+</ul>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>基于GitLab的灵活性，在团队中进行一些约定后，即可以作为辅助团队敏捷化管理其它工作的工具。在一个工具中完成产品研发团队绝大多数管理工具的建设，且操作方式具备一致性，团队操作全部基于一个工具，天然消除数据孤岛。可以通过GitLab建立的除了基本的代码库、协作工具，还可以构建DevOps工作流、建设知识库、文档管理、面试管理、组织机构人员管理、团队日报、周报、管理测试用例及测试计划、管理测试的执行、管理性能测试、还有一些和上下游部门对接的其它工作。</p>
+<p>若借助Webhooks，可以赋能上述管理场景的同时，还可以有更多的想象空间，如建设效能提升工具，建设违约操作监督提醒等应用。</p>
+<p><em>注：因为GitLab是开源的，如果愿意投入研发成本，它还可以变成任何你想要的工具，但这种高成本方式不在本文的考虑范围内。</em></p>
+<h2 id="赋能研发人员池管理"><a href="#赋能研发人员池管理" class="headerlink" title="赋能研发人员池管理"></a>赋能研发人员池管理</h2><p>对于扁平化的组织，可以建立一个“研发人员池”的Project，在看板中基于岗位、组织结构、敏捷小组等建立泳道，并将研发人员归属到对应的看板中，即可拥有一个清晰的人员组织架构图。</p>
+<p>若组织分为多级，也可通过建立多个Group，最后一级建立Project的方式，对人员进行组织结构的划分，可通过Group进行统筹管理，也可通过Project对某个具体团队单独管理。</p>
+<p>通过标签来定义人员的能力、特点、职级、职责等人力资源画像所需的特征，并给每个成员都贴上合适的标签，可基于事件对标签进行调整，也可阶段性的进行人员池复盘，通过筛选标签，即可快速找到对应的人员，执行相关的管理动作。</p>
+<p>一个卡片即代表了一个团队成员，在卡片的描述中，可以约定一个格式框架，将人员的基础信息管理起来。</p>
+<p>也可在成员卡片下通过评论，完成一些成员事件的备忘，对“人员卡片”所做的操作也会被记录在卡片历史中作为备忘。</p>
+<h2 id="赋能面试管理"><a href="#赋能面试管理" class="headerlink" title="赋能面试管理"></a>赋能面试管理</h2><p>如果没有进行面试的管理，那么很有可能出现这种情况，人资随时会将人员简历，面试动向发送到个人或工作群中，这样很容易打乱手中的工作，如果使用GitLab来简历面试管理的工具，进行闲时批量处理，提高综合效率的同时，也能做到周期性的简历质量横向对比。</p>
+<p>同样，面试管理也可以通过看板制定工作流，让人资和面试官基于看板进行协作，可以通过标签，对关键信息进行定义，如：是否加急、岗位、投递方式（主动 or 被动）、来源渠道、面试结果，看板规划可参照下图：</p>
+<img src="index/看板-面试管理.png" alt="看板-面试管理" style="zoom: 50%;" />
+
+<p>包括研发团队与客服对接的群也是一样，非紧急情况的沟通，参与的人要少，尽可能避免临时性通知打乱工作节奏，思路就被打乱了，让研发人员在闲时去指定的位置找任务，这也是效能优化的一个点（不少研发人员认为晚上干活产出高的原因就是白天处理碎片化的任务，晚上才能找到大段的安静的时间专注的开发）。</p>
+<p>顺延几点：</p>
+<ul>
+<li>在线沟通的内容也应当避免本可以一句话说完，而拆成多条发送的情况，叮叮当当的点开一看，还没说完。</li>
+<li>对零散琐碎的事情，做好接口人管理，尽可能为开发人员营造专注的工作环境。</li>
+<li>当团队精力充足时，应该自己去寻找合适的人员，只有需要用人的部门去把控入职人员的选择时，才是最接近准确的，同时也会避免一些没有必要的面试而浪费的精力。</li>
+</ul>
+<h2 id="赋能知识库管理"><a href="#赋能知识库管理" class="headerlink" title="赋能知识库管理"></a>赋能知识库管理</h2><p>GitLab提供了Wiki页面快速构建团队的知识库，也可通过代码库来快速构建文档管理。</p>
+<p>对于文档管理的权限问题，虽然不能控制到某个Project的文件夹，但可以通过创建多个Project，来分别管理不同访问级别的文件。</p>
+<h2 id="提升上下游人员间的响应"><a href="#提升上下游人员间的响应" class="headerlink" title="提升上下游人员间的响应"></a>提升上下游人员间的响应</h2><p>GitLab提供了邮件通知功能，任何人员可以对所拥有权限内的卡片、标签进行订阅，以便及时接收到变更或进展的提醒，通过二次开发，也可将通知接入钉钉、企业微信等办公即时通讯工具中。</p>
+<h2 id="基于GitLab二次开发，辅助研发效能的提升和管理"><a href="#基于GitLab二次开发，辅助研发效能的提升和管理" class="headerlink" title="基于GitLab二次开发，辅助研发效能的提升和管理"></a>基于GitLab二次开发，辅助研发效能的提升和管理</h2><p>利用GitLab提供的<strong>Webhooks</strong>功能，可以开发一个效能监控统计工具。根据团队约定的规则，对卡片的动作进行记录并分析，结合IM即时通讯，即可提供对卡片和看板基于约定规则的实时监控，及时通知到干系人异常情况，也可日、周、月发布效能统计报表。</p>
+<p><strong>可以构建下述辅助管理工具：</strong></p>
+<ul>
+<li><p>通过Issues事件，可以分析卡片移动和标签使用时的错误（对约定的检查），并通过IM机器人，通知到即时通讯中，以便提醒干系人及时进行调整。</p>
+</li>
+<li><p>建立Web应用，通过GitLab开放的接口，进行各类数据的导出，便于相关人员进行离线分析。</p>
+</li>
+<li><p>提供的Rest接口将钩子事件进行处理后，记录到数据库中，可在固定频率（每日、每周），对事件进行分析，并结合GitLab开放接口，完成效能分析统计，还可将统计报告通过Markdown格式记录到GitLab的Wiki中，通过IM机器人，将Wiki发送到工作群中。<strong>效能日报或周报示例如下：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 【xxx产品开发组】效能分析（周报）</span></span><br><span class="line">统计周期：YYYY年MM月DD日 hh时 - YYYY年MM月DD日 hh时</span><br><span class="line"></span><br><span class="line"><span class="section">## 1. 总览</span></span><br><span class="line"><span class="section">### 1.1. 效率</span></span><br><span class="line">从YYYY-MM-DD开始的团队处理效率：</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 缺陷平均修复时长：xx天（合 xx 小时）</span><br><span class="line"><span class="bullet">-</span> 线上异常平均修复时长：xx天（合 xx 小时）</span><br><span class="line"><span class="bullet">-</span> 需求平均完成时长：xx天（合 xx 小时）</span><br><span class="line"><span class="bullet">-</span> 需求平均策划时长：xx天（合 xx 小时）</span><br><span class="line"><span class="bullet">-</span> 需求平均开发时长：xx天（合 xx 小时）</span><br><span class="line"><span class="bullet">-</span> 需求平均测试时长：xx天（合 xx 小时）</span><br><span class="line"><span class="bullet">-</span> 需求平均发布时长：xx天（合 xx 小时）</span><br><span class="line"><span class="section">### 1.2. 成果</span></span><br><span class="line"><span class="bullet">-</span> 就绪需求：xx个</span><br><span class="line"><span class="bullet">-</span> 提测需求：xx个</span><br><span class="line"><span class="bullet">-</span> 完成需求（已完成未发布）：xx个</span><br><span class="line"><span class="bullet">-</span> 发布需求（已发布）：xx个</span><br><span class="line"><span class="bullet">-</span> 完成线上异常（已完成未发布）：xx个</span><br><span class="line"><span class="bullet">-</span> 发布线上异常（已发布）：xx个</span><br><span class="line"><span class="bullet">-</span> 处理缺陷：xx个（<span class="strong">**新增：xx个；库存：xx个**</span>）</span><br><span class="line"><span class="bullet">-</span> 处理研发任务：xx个</span><br><span class="line"><span class="section">### 1.3. 已规划</span></span><br><span class="line"><span class="section">#### 【里程碑A的名称】</span></span><br><span class="line"><span class="bullet">-</span> 需求完成率（含待验收）： xx %（xx ÷ xx）</span><br><span class="line"><span class="bullet">-</span> 线上异常完成率（含待验收）： xx %（xx ÷ xx）</span><br><span class="line"><span class="bullet">-</span> 统计周期内新增需求： xx个</span><br><span class="line"><span class="bullet">-</span> 统计周期内新增线上异常： xx个</span><br><span class="line"><span class="section">#### 【里程碑B的名称】</span></span><br><span class="line"></span><br><span class="line">同上</span><br><span class="line"></span><br><span class="line"><span class="section">### 1.4. 待规划</span></span><br><span class="line"><span class="section">#### 1.4.1. 未规划里程碑</span></span><br><span class="line"><span class="emphasis">*下列卡片需要排期*</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 【创建人：xxx】（#2722）：【卡片/需求】xxx</span><br><span class="line"><span class="bullet">-</span> 【创建人：xxx】（#2713）：【卡片/需求】xxx</span><br><span class="line"><span class="section">#### 1.4.2. 以后处理的</span></span><br><span class="line"><span class="emphasis">*需团队相关成员阶段性关注，并盘点“以后处理”里程碑中的卡片*</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 需求：xx个</span><br><span class="line"><span class="bullet">-</span> 线上异常：xx个</span><br><span class="line"><span class="section">## 2. 团队现状分析</span></span><br><span class="line"><span class="bullet">-</span> 【无负责人】</span><br><span class="line"><span class="bullet">  -</span> 进行中的研发任务及需求：xx个</span><br><span class="line"><span class="bullet">  -</span> 就绪的研发任务及需求：xx个</span><br><span class="line"><span class="bullet">  -</span> 进行中的线上异常：xx个</span><br><span class="line"><span class="bullet">  -</span> 就绪的线上异常：xx个</span><br><span class="line"><span class="bullet">  -</span> 缺陷：xx个（<span class="strong">**其中严重缺陷**</span> ：xx个）</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 【成员A】</span><br><span class="line"><span class="bullet">  -</span> 进行中的研发任务及需求：xx个</span><br><span class="line"><span class="bullet">  -</span> 就绪的研发任务及需求：xx个</span><br><span class="line"><span class="bullet">  -</span> 进行中的线上异常：xx个</span><br><span class="line"><span class="bullet">  -</span> 就绪的线上异常：xx个</span><br><span class="line"><span class="bullet">  -</span> 缺陷：xx个（<span class="strong">**其中严重缺陷**</span> ：xx个）</span><br><span class="line"></span><br><span class="line">  <span class="strong">**其中：**</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">  -</span> 重点关注的：xx个</span><br><span class="line"></span><br><span class="line"><span class="section">## 3. 工作现状分析</span></span><br><span class="line"><span class="emphasis">*周期快照，用于燃尽图*</span></span><br><span class="line"><span class="section">### 【里程碑A的名称】</span></span><br><span class="line"><span class="bullet">-</span> 需求（总：xx个，已关闭：xx个）</span><br><span class="line"><span class="bullet">  -</span> 待选择的：xx个</span><br><span class="line"><span class="bullet">  -</span> 已选择的：xx个</span><br><span class="line"><span class="bullet">  -</span> 产品UI设计中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待澄清的：xx个</span><br><span class="line"><span class="bullet">  -</span> 软件概要设计中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 就绪的：xx个</span><br><span class="line"><span class="bullet">  -</span> 开发中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待测试的：xx个</span><br><span class="line"><span class="bullet">  -</span> 测试中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待验收的：xx个</span><br><span class="line"><span class="bullet">  -</span> 已验收通过的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待发布的：xx个</span><br><span class="line"><span class="bullet">  -</span> 已发布的：xx个</span><br><span class="line"><span class="bullet">-</span> 缺陷（总：xx个，已关闭：xx个）</span><br><span class="line"><span class="bullet">  -</span> 缺陷处理中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待测试的：xx个</span><br><span class="line"><span class="bullet">  -</span> 测试中的：xx个</span><br><span class="line"><span class="bullet">-</span> 线上异常（总：xx个，已关闭：xx个）</span><br><span class="line"><span class="bullet">  -</span> 就绪的：xx个</span><br><span class="line"><span class="bullet">  -</span> 开发中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待测试的：xx个</span><br><span class="line"><span class="bullet">  -</span> 测试中的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待验收的：xx个</span><br><span class="line"><span class="bullet">  -</span> 已验收通过的：xx个</span><br><span class="line"><span class="bullet">  -</span> 待发布的：xx个</span><br><span class="line"><span class="bullet">  -</span> 已发布的：xx个</span><br><span class="line"><span class="section">### 【里程碑B的名称】</span></span><br><span class="line">同上</span><br><span class="line"></span><br><span class="line"><span class="section">## 4. 合规检查</span></span><br><span class="line"><span class="emphasis">*由卡片创建人进行修改，敏捷教练监督，并对团队做补充培训。*</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="strong">**【创建人：xxx】（#2735）：卡片标题**</span></span><br><span class="line"><span class="bullet">  -</span> 未指定卡片类型（无卡片标签）</span><br><span class="line"><span class="bullet">  -</span> 未指定负责人</span><br><span class="line"><span class="bullet">  -</span> 未进入看板（无流程标签）</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**【创建人：xxx】（#2363）：卡片标题**</span></span><br><span class="line"><span class="bullet">  -</span> 【卡片/线上异常】不能流转到【流程/缺陷处理中】看板中</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<blockquote>
+<p>本系列文章是一个不依赖实际产品、团队、技术架构的，进行了泛化、抽象化的一个指南性质的文章。将分几部分来阐述“互联网产品的研发模式和提升研发效能”这个主题的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。</p>
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="1.引言">1.引言</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/" title="2.几个重要的观念">2.几个重要的观念</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/" title="3.形而上">3.形而上</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/" title="4.设计组织架构">4.设计组织架构</a>
+
+<br/>
+
+<a href="#">Post not found: developer/manage/mode-and-efficiency-guide/5-1-design-working-mode-issue/index 5.1.工作模式设计——需求处理</a>
+
+<p><br/><a href="#">Post not found: developer/manage/mode-and-efficiency-guide/5-2-design-working-mode-iteration/index 5.2.工作模式设计——迭代规划</a></p>
+<p><br/><a href="#">Post not found: developer/manage/mode-and-efficiency-guide/5-3-design-working-mode-other/index 5.3.工作模式设计——其它事务</a></p>
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/" title="6.建立可视化协作机制">6.建立可视化协作机制</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/7-evaluate-and-motivate/index/" title="7.进行评估和激励">7.进行评估和激励</a>
+
+<br/>
+
+<a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/" title="8.附录">8.附录</a>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/">https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/6-establish-visual-collaboration-mechanism/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/7-evaluate-and-motivate/index/"><img class="prev-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">互联网产品研发模式与效能提升指南 - 7.进行评估和激励</div></div></a></div><div class="next-post pull-right"><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-3-design-working-mode-of-iteration/index/"><img class="next-cover" src="/images/default_top_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">互联网产品研发模式与效能提升指南 - 5.2.工作模式设计——迭代规划</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/01/14/developer/manage/single-repo-dev-mode/index/" title="单Repo开发模式"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">单Repo开发模式</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="互联网产品研发模式与效能提升指南 - 1.引言"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 1.引言</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/2-several-important-concepts/index/" title="互联网产品研发模式与效能提升指南 - 2.几个重要的观念"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 2.几个重要的观念</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/3-metaphysical/index/" title="互联网产品研发模式与效能提升指南 - 3.形而上"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 3.形而上</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/4-design-organizational-structure/index/" title="互联网产品研发模式与效能提升指南 - 4.设计组织架构"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 4.设计组织架构</div></div></a></div><div><a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/5-1-design-working-mode-of-issue/index/" title="互联网产品研发模式与效能提升指南 - 5.1.工作模式设计——需求处理"><img class="cover" src="/images/default_top_img.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">互联网产品研发模式与效能提升指南 - 5.1.工作模式设计——需求处理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">总体结构规划</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%EF%BC%88Labels%EF%BC%89%E8%A7%84%E5%88%92"><span class="toc-number">2.</span> <span class="toc-text">标签（Labels）规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E7%BB%B4%E5%BA%A6"><span class="toc-number">2.1.</span> <span class="toc-text">通用维度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E7%BB%B4%E5%BA%A6"><span class="toc-number">2.2.</span> <span class="toc-text">需求维度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E6%9D%BF%E7%BB%B4%E5%BA%A6"><span class="toc-number">2.3.</span> <span class="toc-text">看板维度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E9%99%B7%E7%BB%B4%E5%BA%A6"><span class="toc-number">2.4.</span> <span class="toc-text">缺陷维度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8C%E7%A8%8B%E7%A2%91%EF%BC%88Milestones%EF%BC%89%E8%A7%84%E5%88%92"><span class="toc-number">3.</span> <span class="toc-text">里程碑（Milestones）规划</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9C%8B%E6%9D%BF%EF%BC%88Issue-Boards%EF%BC%89%E8%A7%84%E5%88%92"><span class="toc-number">4.</span> <span class="toc-text">看板（Issue Boards）规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E6%B1%A0%E7%9C%8B%E6%9D%BF"><span class="toc-number">4.1.</span> <span class="toc-text">需求池看板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%8F%E6%8D%B7%E5%9B%A2%E9%98%9F%E7%9C%8B%E6%9D%BF"><span class="toc-number">4.2.</span> <span class="toc-text">敏捷团队看板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%92%E9%A2%84%E7%A0%94%E7%9C%8B%E6%9D%BF"><span class="toc-number">4.3.</span> <span class="toc-text">规划预研看板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AE%A1%E7%90%86%E8%A7%84%E5%88%92"><span class="toc-number">5.</span> <span class="toc-text">测试管理规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E8%A7%84%E5%88%92"><span class="toc-number">5.1.</span> <span class="toc-text">标签规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8C%E7%A8%8B%E7%A2%91%E8%A7%84%E5%88%92"><span class="toc-number">5.2.</span> <span class="toc-text">里程碑规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E6%9D%BF%E8%A7%84%E5%88%92"><span class="toc-number">5.3.</span> <span class="toc-text">看板规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C"><span class="toc-number">5.4.</span> <span class="toc-text">操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%84%E8%8C%83%E5%8F%8A%E7%BA%A6%E5%AE%9A"><span class="toc-number">6.</span> <span class="toc-text">规范及约定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">7.</span> <span class="toc-text">其它</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%8B%E8%83%BD%E7%A0%94%E5%8F%91%E4%BA%BA%E5%91%98%E6%B1%A0%E7%AE%A1%E7%90%86"><span class="toc-number">7.1.</span> <span class="toc-text">赋能研发人员池管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%8B%E8%83%BD%E9%9D%A2%E8%AF%95%E7%AE%A1%E7%90%86"><span class="toc-number">7.2.</span> <span class="toc-text">赋能面试管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%8B%E8%83%BD%E7%9F%A5%E8%AF%86%E5%BA%93%E7%AE%A1%E7%90%86"><span class="toc-number">7.3.</span> <span class="toc-text">赋能知识库管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%8D%87%E4%B8%8A%E4%B8%8B%E6%B8%B8%E4%BA%BA%E5%91%98%E9%97%B4%E7%9A%84%E5%93%8D%E5%BA%94"><span class="toc-number">7.4.</span> <span class="toc-text">提升上下游人员间的响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8EGitLab%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%EF%BC%8C%E8%BE%85%E5%8A%A9%E7%A0%94%E5%8F%91%E6%95%88%E8%83%BD%E7%9A%84%E6%8F%90%E5%8D%87%E5%92%8C%E7%AE%A1%E7%90%86"><span class="toc-number">7.5.</span> <span class="toc-text">基于GitLab二次开发，辅助研发效能的提升和管理</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
