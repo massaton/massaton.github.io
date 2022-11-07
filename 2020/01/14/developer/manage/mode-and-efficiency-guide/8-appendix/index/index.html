@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网产品研发模式与效能提升指南 - 8.附录 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本系列文章是一个不依赖实际产品、团队、技术架构的，进行了泛化、抽象化的一个指南性质的文章。将分几部分来阐述“互联网产品的研发模式和提升研发效能”这个主题的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。 1.引言  2.几个重要的观念  3.形而上  4.设计组织架构  5.1.工作模式设计——需求处理  5.2.工作模式设计——迭代">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网产品研发模式与效能提升指南 - 8.附录 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="您的团队可能出现的问题需求任务方面 未将业务类需求和支持类需求进行统筹管理，对“业务类需求”的处理进行了定义和设计，但未对“支持类需求”的处理进行定义和设计，对日益增长的“支持类需求”没有形成有效的支撑，需求被大量堆积； 建立了产品需求&#x2F;任务的处理机制，但未对其它需求&#x2F;任务（规划预研类的任务、线上异常处理、系统非功能性指标提升等 ）形成有效的处理机制； 开发任务与产品需求没有关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="互联网产品研发模式与效能提升指南 - 8.附录">
 <meta property="og:url" content="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/index.html">
 <meta property="og:site_name" content="MASSLESS">
-<meta property="og:description" content="本系列文章是一个不依赖实际产品、团队、技术架构的，进行了泛化、抽象化的一个指南性质的文章。将分几部分来阐述“互联网产品的研发模式和提升研发效能”这个主题的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。 1.引言  2.几个重要的观念  3.形而上  4.设计组织架构  5.1.工作模式设计——需求处理  5.2.工作模式设计——迭代">
+<meta property="og:description" content="您的团队可能出现的问题需求任务方面 未将业务类需求和支持类需求进行统筹管理，对“业务类需求”的处理进行了定义和设计，但未对“支持类需求”的处理进行定义和设计，对日益增长的“支持类需求”没有形成有效的支撑，需求被大量堆积； 建立了产品需求&#x2F;任务的处理机制，但未对其它需求&#x2F;任务（规划预研类的任务、线上异常处理、系统非功能性指标提升等 ）形成有效的处理机制； 开发任务与产品需求没有关">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://massaton.github.io/images/default_top_img.jpg">
 <meta property="article:published_time" content="2020-01-13T16:00:09.000Z">
-<meta property="article:modified_time" content="2022-11-06T08:43:01.455Z">
+<meta property="article:modified_time" content="2022-11-07T06:32:48.710Z">
 <meta property="article:author" content="Massless">
 <meta property="article:tag" content="Original">
 <meta property="article:tag" content="R&amp;D Mode">
@@ -59,8 +59,8 @@
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2022-11-06 16:43:01'
+  isToc: true,
+  postUpdate: '2022-11-07 14:32:48'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -149,7 +149,115 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网产品研发模式与效能提升指南 - 8.附录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-01-13T16:00:09.000Z" title="Created 2020-01-14 00:00:09">2020-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><hr>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网产品研发模式与效能提升指南 - 8.附录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-01-13T16:00:09.000Z" title="Created 2020-01-14 00:00:09">2020-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="您的团队可能出现的问题"><a href="#您的团队可能出现的问题" class="headerlink" title="您的团队可能出现的问题"></a>您的团队可能出现的问题</h1><h2 id="需求任务方面"><a href="#需求任务方面" class="headerlink" title="需求任务方面"></a>需求任务方面</h2><ul>
+<li>未将业务类需求和支持类需求进行统筹管理，对“业务类需求”的处理进行了定义和设计，但未对“支持类需求”的处理进行定义和设计，对日益增长的“支持类需求”没有形成有效的支撑，需求被大量堆积；</li>
+<li>建立了产品需求&#x2F;任务的处理机制，但未对其它需求&#x2F;任务（规划预研类的任务、线上异常处理、系统非功能性指标提升等 ）形成有效的处理机制；</li>
+<li>开发任务与产品需求没有关联性，不容易了解到需求对应了哪些开发任务，任务完成情况如何，是哪个环节阻碍了需求的流转；</li>
+</ul>
+<h2 id="研发模式方面"><a href="#研发模式方面" class="headerlink" title="研发模式方面"></a>研发模式方面</h2><ul>
+<li>在需求的流转过程中，团队未将需求作为价值流转过程中的对齐目标和串联整个价值流转过程的依据，在各个阶段（局部）形成效率孤岛，但总体的效率却不高；</li>
+<li>价值的流转被切分为不同的阶段（职能），未做到端到端的价值流转模式的可视化，很难即时发现阻碍价值流动的问题；</li>
+<li>看板工具欠缺规划，无法清晰的展现端到端价值流动的过程；</li>
+</ul>
+<h2 id="研发质量方面"><a href="#研发质量方面" class="headerlink" title="研发质量方面"></a>研发质量方面</h2><ul>
+<li>团队的产出成果质量参差不齐，交付测试后，产生过多的缺陷，阻碍需求流转；</li>
+<li>缺陷数量在一个迭代过程中存在后段爆发式趋势，导致产品的发布必须要等待较长时间，将缺陷率降低；</li>
+<li>价值流转过程中的各个阶段（策划、设计、开发、测试）产出的成果质量较低，尤其是对开发团队的需求澄清质量和开发成果的质量较低，价值流转的过程中，产生较多的阻碍，返工和停滞情况较多；</li>
+</ul>
+<h2 id="规划计划方面"><a href="#规划计划方面" class="headerlink" title="规划计划方面"></a>规划计划方面</h2><ul>
+<li>经常被各种变化牵着鼻子走，被动的接收变化，调整资源计划；</li>
+<li>上下游团队间形成批量交付模式（集中规划、集中设计、集中开发、集中测试、集中上线），导致上下游团队间的等待周期变长，价值在流转过程中被积压和等待，降低了价值的流转效率，延长了价值的交付周期；</li>
+<li>批量的交付模式容易形成团队工作的前松后紧，待测试的需求在上线前夕集中交付到测试团队，导致迭代后期工作量激增，质量问题多，很多问题没有时间发现，被发布到生产，形成不健康的工作节奏；</li>
+<li>产品需求的规划、计划、实际交付之间的不一致，想通过控制资源过程解决，但苦于需求的无序性、评估的准确性和技术（预研）类工作本身的不可控性等因素，找不到对于团队有效的工作量评估方式，而对计划不断的调整，团队内部实际没有有效的计划，价值流转的节奏被打乱；</li>
+</ul>
+<h2 id="工作安排方面"><a href="#工作安排方面" class="headerlink" title="工作安排方面"></a>工作安排方面</h2><ul>
+<li>需求的拆分和管理能力不足，有的需求实现周期实现过长；</li>
+<li>成员并行处理的需求或任务过多，不利于专注的、聚焦的处理“当前”需求，穿插的任务会降低需求流转的效率；</li>
+<li>紧急的或重要的需求无法插队上线，要等待批量的需求处理完成后才可一并上线，导致拉长了需求的响应周期。对紧急任务（线上问题、紧急需求），未形成良好的处理模式；</li>
+<li>随着产品和组织的逐渐扩大，自上而下的管理推动略显疲态，管理和决策的瓶颈也逐步显现；</li>
+</ul>
+<h2 id="团队管理方面"><a href="#团队管理方面" class="headerlink" title="团队管理方面"></a>团队管理方面</h2><ul>
+<li>团队要靠上级或下游来推动，才可以让价值流动起来，需要过多的管理介入，没有端到端的价值流动机制；</li>
+<li>职能型的组织结构带来协作长城的问题，项目型的组织结构带来缺少统筹的问题；</li>
+<li>对研发效能的定义不够清晰、准确，团队的评估偏向“资源效率”，过多的关注和提升各个资源环节，而多整个效能体系的关注较少；</li>
+<li>基于微服务、领域、中台驱动下的系统架构策略，没有合适的团队承接，共享业务及技术的沉淀得不到有效推进，随着产品的发展，系统根基不牢靠而带来的问题会凸显；</li>
+<li>资源利用不均衡，团队人少或能力不足，需求的交付就跟不上，相反，则人员闲置。多产品的团队需要配合迭代计划进行人员调配，团队间资源协调容易产生死锁；</li>
+<li>过多的“不紧急且不重要”或“紧急但不重要”的任务对“程序员”形成干扰，降低了有效工作时间内的工作效率，打乱了工作节奏；</li>
+<li>角色概念过于清晰，一个萝卜一个坑，“工程师”的能力特点未得到有效的发挥，阻碍创造的因素较多；</li>
+<li>团队成员对专业类知识的学习没有机会深入，没有时间对专业知识进行思考、专业能力进行提升；</li>
+<li>对团队成员的能力和技能的了解与管理者与成员的了解程度相关，随着人员增多，很难对每个人的能力、特点进行了解，不利于工作的引导；</li>
+<li>过程中无法清晰的让每个人了解价值的流转进度和阻碍，因此也会产生较多的冗余沟通；</li>
+</ul>
+<h2 id="产品架构方面"><a href="#产品架构方面" class="headerlink" title="产品架构方面"></a>产品架构方面</h2><ul>
+<li>多个子产品，团队不同，迭代周期不同，服务共享，带来的发布阶段混乱；</li>
+<li>多产品线的团队，因各产品线阶段性需求规划的难易和数量，工作量与资源无法得到有效对应，资源忙闲程度不可控，容易被动的进行资源的调整；</li>
+<li>多个产品的需求耦合在一起，敏捷团队处理问题的领域方向不唯一，且在多团队间形成领域交集；</li>
+</ul>
+<h2 id="其它方面"><a href="#其它方面" class="headerlink" title="其它方面"></a>其它方面</h2><ul>
+<li>随着工程repo的增多，工程管理的复杂度上升，影响了效能；</li>
+</ul>
+<h1 id="从小瀑布模式到持续交付模式的演进步骤"><a href="#从小瀑布模式到持续交付模式的演进步骤" class="headerlink" title="从小瀑布模式到持续交付模式的演进步骤"></a>从小瀑布模式到持续交付模式的演进步骤</h1><p>在对团队的工作模式进行改进时，尽可能避免一刀切、大面积的改进，防止团队中“抗体”的产生带来的影响，应在现有模式的基础上，小步进行，小面积推广，落地、优化适配、再落地，每一小步都走扎实。</p>
+<ol>
+<li>基于现有研发模式和团队划分，应用看板、站会等敏捷工具，将端到端的研发工作在全局视角可视化、透明化，经过1-2次完整迭代，分析团队现状，发现或明确需要改进的关键点问题；</li>
+<li>部分实践产品的规划节奏和团队的协作流程。基于敏捷工具，熟悉研发模式，控制需求的粒度，找到适合团队的节奏；</li>
+<li>实践基于单repo+功能分支的开发模式，改进DevOps构建流程，提升开发、测试环境的可用性。经过1-2次迭代，熟悉开发模式，为持续交付做好工程准备；</li>
+<li>调整产品需求的规划节奏和迭代周期，由小瀑布模式向持续交付模式转化，实现价值交付效率的提高；</li>
+<li>经过上述过程，团队找到了适合的工作模式，就可以开始下一步 —— 优化组织架构，根据需求规划的粒度（产品划分），调整敏捷团队的分组和人员，建立研发人员池，各类需求获得有效支撑，推进中台战略的落地；</li>
+<li>在优化后的组织架构基础上，深入实践产品的规划节奏和团队的协作流程的改进，并调优组织架构和工作模式；</li>
+<li>在组织架构和工作模式逐步趋于稳定后，即可规划并建设基于GitLab二次开发的效能管理辅助工具，设计并落地团队的评估和激励；</li>
+<li>持续对研发效能进行进和优化，提升自动化比例（自动化测试、开发运维一体化、改进研发效能工具等）；</li>
+</ol>
+<p>从而实现研发模式从批量交付向持续交付、协作工具从粗放向精细化的演进，达成本指南想要达到的核心目标和主要目标。</p>
+<h1 id="输入输出的规范及模板"><a href="#输入输出的规范及模板" class="headerlink" title="输入输出的规范及模板"></a>输入输出的规范及模板</h1><p>产品研发过程中各个流程节点，输入输出的“文档”模板化，工具统一化，达到每个流程节点谁来做都可以按照框架级规范输出的程度，同时，框架级规范也约定了当前节点工作需要考虑到的范围，是一种避免遗漏，辅助思考的手段，但仍允许个体的习惯、风格的不同而出现不同的表现形式。</p>
+<p>&#x3D;&#x3D;TODO&#x3D;&#x3D;</p>
+<p>PRD</p>
+<p>软件概要设计</p>
+<p>测试用例设计</p>
+<p>测试报告设计</p>
+<p>变更部署文档</p>
+<p>上线申请（用于各口同步信息）</p>
+<p>迭代报告</p>
+<h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><p>记录一些落地过程中的问题，并对具象问题进行抽象化。</p>
+<ul>
+<li><p>一个大需求下的分项需求如何在GitLab中定义并管理？</p>
+<p>使用临时的需求标签。</p>
+</li>
+<li><p>若正在处理的卡片，因外部因素，无法继续处理时，怎么办？</p>
+<p>保持卡片所在的看板，添加“阻碍”标签，并在评论中记录阻碍的原因。</p>
+</li>
+<li><p>若已经开始流转的卡片（进入了待选择以后的看板），当产品规划产生了变更，该卡片所承载的需求取消了，应该做哪些操作？</p>
+<ol>
+<li>调整该卡片到对应的里程碑</li>
+<li>去除该卡片的指派人</li>
+<li>将该卡片拖入“待选择”看板</li>
+</ol>
+</li>
+<li><p>如果想简化卡片的管理，哪一部分可以简化？</p>
+<p>去除任务处理看板；去除“卡片&#x2F;研发任务”标签；</p>
+<p>研发任务卡片可以简化为需求卡片中的“任务清单”（即Markdown中的TODO功能），任务清单通常会在软件设计阶段制定；</p>
+<p>需求中的Todo List规范：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> [ ] 【前端/后端/依赖】【预计完成时间】（处理人）：任务的说明</span><br></pre></td></tr></table></figure>
+
+<p>需求卡片必须指定一个处理人，由此处理人对该需求中的任务清单进行推进。</p>
+<p>线上异常卡片在进入开发中后，要指定一个处理人。</p>
+</li>
+<li><p>测试用例的编写，在什么阶段完成？</p>
+<p>由测试团队对进入到“软件概要设计”、“就绪”看板中（在“待澄清”后，“开发中”前）的卡片，完成测试用例的编写，并在该卡片上，添加“测试用例”标签，以说明该卡片以包含测试用例。</p>
+</li>
+<li><p>软件设计应该放在就绪前还是就绪后？有什么差别？</p>
+<p>实际的软件设计相关工作会贯穿于需求提出到需求上线的整个过程，只不过在每个阶段的侧重点和轻重缓急会不同。</p>
+<ol>
+<li>在需求提出到产品进行设计的这个阶段，软件设计主要集中在技术可行性评估和技术预研上，并会对需求的领域进行一些粗粒度的划分，形成一些概念化的软件设计（主要是一些思路、验证、结构、架构等）。</li>
+<li>在需求完成澄清到就绪的这个阶段，软件设计类的工作会占主要，这个阶段会输出软件的概要设计、测试用例设计，并完成设计评审。软件的概要设计中又会包含架构设计、前端设计（识别公共组件、关键业务的前端逻辑、明确页面增删改的点等）、服务规划、接口设计（关键执行逻辑、实现时的注意点）、数据结构设计、关键流程设计、复杂的状态转换设计、识别依赖等。</li>
+<li>在需求开始开发到上线的这个阶段，会基于前面的软件概要设计及测试用例设计，在实现时对设计进行细化（并非详细设计），从而完成需求的开发及测试工作。这个阶段更偏向于需求的具体开发人员之间的沟通和落地过程中对设计的细化或优化。</li>
+</ol>
+</li>
+<li><p>上线变更项如何管理？</p>
+<p>上线的需求不一定，环境变更与要上线的需求是呈关联性的，如何记录和管理呢？</p>
+<p>开发团队首先编写需求带来的环境变更，测试团队最终去统计最终发布到生产中的变更，记录由开发环境到测试环境的各种变更（数据结构、基础数据、配置、数据补充），形成需求的部署任务。</p>
+</li>
+</ul>
+<hr>
 <blockquote>
 <p>本系列文章是一个不依赖实际产品、团队、技术架构的，进行了泛化、抽象化的一个指南性质的文章。将分几部分来阐述“互联网产品的研发模式和提升研发效能”这个主题的关键点及可行实践，意在抛砖引玉。在实际落地时，可参考此指南，根据组织、产品及团队的特性，进行组合或优化使用。</p>
 <a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/1-introduction/index/" title="1.引言">1.引言</a><br/>
@@ -172,7 +280,7 @@
 
 <a href="/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/" title="8.附录">8.附录</a>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/">https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadUtterances () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/">https://massaton.github.io/2020/01/14/developer/manage/mode-and-efficiency-guide/8-appendix/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%82%A8%E7%9A%84%E5%9B%A2%E9%98%9F%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">您的团队可能出现的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E4%BB%BB%E5%8A%A1%E6%96%B9%E9%9D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">需求任务方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E5%8F%91%E6%A8%A1%E5%BC%8F%E6%96%B9%E9%9D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">研发模式方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E5%8F%91%E8%B4%A8%E9%87%8F%E6%96%B9%E9%9D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">研发质量方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%92%E8%AE%A1%E5%88%92%E6%96%B9%E9%9D%A2"><span class="toc-number">1.4.</span> <span class="toc-text">规划计划方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%AE%89%E6%8E%92%E6%96%B9%E9%9D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">工作安排方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%96%B9%E9%9D%A2"><span class="toc-number">1.6.</span> <span class="toc-text">团队管理方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84%E6%96%B9%E9%9D%A2"><span class="toc-number">1.7.</span> <span class="toc-text">产品架构方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E6%96%B9%E9%9D%A2"><span class="toc-number">1.8.</span> <span class="toc-text">其它方面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%B0%8F%E7%80%91%E5%B8%83%E6%A8%A1%E5%BC%8F%E5%88%B0%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%BC%94%E8%BF%9B%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">从小瀑布模式到持续交付模式的演进步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%9A%84%E8%A7%84%E8%8C%83%E5%8F%8A%E6%A8%A1%E6%9D%BF"><span class="toc-number">3.</span> <span class="toc-text">输入输出的规范及模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">4.</span> <span class="toc-text">Q&amp;A</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadUtterances () {
   let ele = document.createElement('script')
   ele.setAttribute('id', 'utterances_comment')
   ele.setAttribute('src', 'https://utteranc.es/client.js')
