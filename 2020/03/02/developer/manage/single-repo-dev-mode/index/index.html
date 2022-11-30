@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>单Repo开发模式 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
-<meta property="og:title" content="单Repo开发模式">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>单repo开发模式指南 | MASSLESS</title><meta name="keywords" content="Original,R&amp;D Mode,Efficiency,Guide"><meta name="author" content="Massless,freecoder@163.com"><meta name="copyright" content="Massless"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前述“单repo开发模式”是基于微服务技术架构，将一个系统的各个前后端的工程代码放到同一个代码仓库中，采用“环境分支”+“特性分支”+“发布标签”的代码管理模式，再通过辅助脚本完成与DevOps系统集成，兼顾多环境部署的一种团队协作编码模式。  存在的问题 在一个产品从0-1的诞生过程中，为了提高团队的协作编码效率，可以采用单分支的代码管理模式，但初始版本上线后，要不断的进行迭代升级，此时再使用单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单repo开发模式指南">
 <meta property="og:url" content="https://massaton.github.io/2020/03/02/developer/manage/single-repo-dev-mode/index/index.html">
 <meta property="og:site_name" content="MASSLESS">
+<meta property="og:description" content="前述“单repo开发模式”是基于微服务技术架构，将一个系统的各个前后端的工程代码放到同一个代码仓库中，采用“环境分支”+“特性分支”+“发布标签”的代码管理模式，再通过辅助脚本完成与DevOps系统集成，兼顾多环境部署的一种团队协作编码模式。  存在的问题 在一个产品从0-1的诞生过程中，为了提高团队的协作编码效率，可以采用单分支的代码管理模式，但初始版本上线后，要不断的进行迭代升级，此时再使用单">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://massaton.github.io/images/default_top_img.jpg">
-<meta property="article:published_time" content="2020-03-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-07T07:05:25.957Z">
+<meta property="article:published_time" content="2020-03-01T16:01:00.000Z">
+<meta property="article:modified_time" content="2022-11-30T08:54:16.533Z">
 <meta property="article:author" content="Massless">
 <meta property="article:tag" content="Original">
 <meta property="article:tag" content="R&amp;D Mode">
@@ -53,12 +55,12 @@
   islazyload: false,
   isAnchor: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '单Repo开发模式',
+  title: '单repo开发模式指南',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2022-11-07 15:05:25'
+  isToc: true,
+  postUpdate: '2022-11-30 16:54:16'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,7 +149,363 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">单Repo开发模式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-03-01T16:00:00.000Z" title="Created 2020-03-02 00:00:00">2020-03-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/03/02/developer/manage/single-repo-dev-mode/index/">https://massaton.github.io/2020/03/02/developer/manage/single-repo-dev-mode/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadUtterances () {
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/black_hole_big.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_top_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MASSLESS</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> Article</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-table-list"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-timeline"></i><span> Timeline</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-photo-film"></i><span> Moment</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">单repo开发模式指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2020-03-01T16:01:00.000Z" title="Created 2020-03-02 00:01:00">2020-03-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/">Developer</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Developer/Manage/">Manage</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前述"><a href="#前述" class="headerlink" title="前述"></a>前述</h1><p><strong>“单repo开发模式”</strong>是基于微服务技术架构，将一个系统的各个前后端的工程代码放到同一个代码仓库中，采用“环境分支”+“特性分支”+“发布标签”的代码管理模式，再通过辅助脚本完成与DevOps系统集成，兼顾多环境部署的一种团队协作编码模式。</p>
+<ul>
+<li><p><strong>存在的问题</strong></p>
+<p>在一个产品从0-1的诞生过程中，为了提高团队的协作编码效率，可以采用单分支的代码管理模式，但初始版本上线后，要不断的进行迭代升级，此时再使用单分支的代码管理模式则会带来一些问题：</p>
+<ul>
+<li>在单分支开发模式中，若每个产品线期望有不同的上线时间时<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="A、B两个产品线并行开发，且无依赖，A产品线已完成开发，并通过测试，可以上线，但B产品线未完成开发。">[1]</span></a></sup>，因为在同一个分支中开发，一些同时涉及到的领域服务、前端工程、管理系统等会混杂B产品线未完成开发或测试的代码，只能等待B产品线完成开发后，共同上线，从而拖延了A产品线相关需求的整体效能。</li>
+<li>基于微服务技术架构的独立工程很多，随着业务的增长、业务中台的沉淀，服务层的工程会不断增加和重构，若使用分支方式进行代码管理，一个需求通常会涉及到多个工程分支，从而让分支的管理变得复杂且混乱。</li>
+<li>因为工程数量多，一个需求会修改多个工程，不易于开展代码审查工作，也不利于建立代码审查机制。</li>
+<li>在单分支的代码管理模式下，如果有一个紧急的线上异常需要修复，因为与需求混在同一个分支中进行开发，若要独立上线，则需要繁琐的操作<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="需要通过Git的Cherry-pick命令，将修复线上异常时涉及到的一个或多个Commit“挑选”到各环境分支或release分支，最后到master分支，才能完成上线。">[2]</span></a></sup>，且对环境分支、发布分支的合并带来影响<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Cherry-pick命令会在目标分支创建新的Commit，会导致环境分支间的合并需要解决不必要的代码冲突（或对环境分支进行rebase变基）。">[3]</span></a></sup>，增加了开发人员的负担，还容易出现操作失误。</li>
+<li>在开发过程中，一个需求可能会被其他需求提交的“不成熟的代码”所影响，导致出现无法启动、代码错误等异常。</li>
+</ul>
+</li>
+<li><p><strong>解决的问题</strong></p>
+<ul>
+<li><p>提升了代码对开发人员的透明度，便于开发人员站在全局了解系统，并可对各层代码提出改进（需要通过人工代码审查）。</p>
+</li>
+<li><p>提升了对需求独立或组合发布的支撑，提升紧急的需求或线上异常的发布及时性，通过特性分支与其他需求隔离，可灵活的进行特性的发布、合并、废除等操作。</p>
+</li>
+<li><p>降低了工程管理的复杂度，从需要管理多个仓库变成只需要管理一个仓库，且仓库内的结构一目了然。</p>
+</li>
+<li><p>降低了分支管理的复杂度，一个需求只需要在一个特性分支中进行开发，而无需在多个代码仓库中分别管理各个分支。</p>
+</li>
+<li><p>简化了工程版本的管理，仅需要在一个工程的主分支上创建一个Tag（多代码库时需要分别管理版本），即可完成版本的定义，并自动触发DevOps流程，完成发布。</p>
+</li>
+<li><p>同时兼顾了单分支和多分支的开发场景，满足将一个迭代中的需求拆分为若干个需求（特性分支）进行开发，同时也满足0-1、大迭代、高耦合时，期望在一个分支中开发多个业务线功能的需要。</p>
+</li>
+<li><p>利于简化并统筹管理开发人员的权限，通过在GitLab代码仓库中设置Max role、Protected branches、Protected tags，可将开发人员分为“仅可以对某个分支有提交权限的”、“可以合并分支到各环境分支权限的（进行代码审查）”、“可以创建Tag权限的（进行代码发布）”。</p>
+</li>
+<li><p>有利于代码质量的提升，可以更方便的建立基于需求的代码审查机制，审查人员可以基于独立分支，方便的完成一个完整需求的代码审查及需求发布工作。</p>
+</li>
+<li><p>有利于测试环节的节奏把控，测试团队通过一键手动触发所有变更代码的构建及发布，灵活的决定测试环境的更新时机，降低自动构建对正在测试人员的影响。</p>
+</li>
+<li><p>便于开展大规模重构，在同一个代码库统筹的、一致的开展全局或局部重构，如：基于目录结构快速调整工程的框架结构，全局或缩小范围查找需要统一修改某段代码或配置，全局或局部进行代码格式化等。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="需要注意的是，重构若与业务开发同步进行时，重构面积越大，越容易出现分支合并时的冲突，需要考虑重构时机，降低合并冲突带来的额外开销。">[4]</span></a></sup></p>
+</li>
+<li><p>……（待发现）</p>
+</li>
+</ul>
+</li>
+<li><p><strong>带来的问题</strong></p>
+<p>一个新模式在团队中落地，会解决已经存在的问题，带来一些改进和新的可能性的同时，也会引入一些新的问题：</p>
+<ul>
+<li><p>因为GitLab的代码管理权限没有细到文件夹，所以理论上前端可以修改后端的代码，反之一样，有小概率可能会出现误修改的情况（例如重构某个变量名），需要团队进行约定<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="开发人员可以根据需要，只在开发工具中打开某一个前端工程目录作为workspace，或只将services目录作为workspace，又或某个具体的服务目录作为workspace。">[5]</span></a></sup>的同时，在代码审查时也要注意是否存在与需求不相关的代码。</p>
+</li>
+<li><p>会因为开发人员对Git操作能力、对此模式的理解能力和熟悉程度的差异，而产生意外操作，尤其是在模式刚落地的初期。可通过工具来降低复杂度（如：IDE中的Git工具、GitLab中的分支管理）。</p>
+</li>
+<li><p>需要对需求的颗粒度、耦合度进行良好的管理<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="需求颗粒度的大小会影响代码修改范围，从而增加合并时发生代码冲突的可能性。需求的耦合度影响不同特性分支进行开发、联调、测试、发布时的便利性，特性分支应尽可能的独立。">[6]</span></a></sup>，会促进此模式的良好运转。</p>
+</li>
+<li><p>与单分支开发相比，特性分支的合并操作会多很多<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="30人左右的团队，在一个常规迭代同时进行的分支大概会有20至60个。">[7]</span></a></sup>，若需求颗粒度较大，发生合并冲突的可能性也会越大，会带来额外的工作量。</p>
+</li>
+<li><p>没有对应的持续集成工具可以满足单repo、多模块的自动化构建、发布流程，需要自己写脚本，再结合持续集成工具完成DevOps流程。</p>
+</li>
+<li><p>……（待发现）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>本节侧重于从使用者的角度，呈现本文涉及到的技术点、概念、关键点等，让受众对模式有一个整体的概念，了解自己的岗位角色在整个模式中的位置。</p>
+<p><em>对于DevOps工具链的搭建及配置，详见<a href="">《CI&amp;CD方案及操作指南》</a></em></p>
+<h2 id="边界图"><a href="#边界图" class="headerlink" title="边界图"></a>边界图</h2><p><img src="/2020/03/02/developer/manage/single-repo-dev-mode/index/%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84.jpg" alt="整体结构"></p>
+<h2 id="工具链"><a href="#工具链" class="headerlink" title="工具链"></a>工具链</h2><p>该模式涉及到的主要工具和主要作用。</p>
+<ul>
+<li><strong>钉钉机器人：</strong>连接DevOps工具和即时通讯的中间件。将后端、Web构建结果、服务器端部署结果、APP安装包构建结果（含分发地址）等信息，通过调用钉钉开放接口发送到对应环境的钉钉群，通知到相关人员。</li>
+<li><strong>蒲公英：</strong>应用分发工具，用于存储各环境的内部测试包。开发环境一般仅在开发人员的机器中编译运行，无需借助分发工具。通过蒲公英的渠道功能，为各个环境建立独立的安装域名，将各环境的打包结果传入对应的渠道，供相关人员安装测试。</li>
+<li><strong>GitLab：</strong>提供Git代码库、协作看板等。存储单repo结构的工程代码，通过特性分支管理方式支撑需求在各个环境中的流转。各角色通过看板对齐目标，各自完成所需任务后进行卡片的维护，协作推进需求流转。</li>
+<li><strong>Jenkins：</strong>持续集成的总调度工具，集成各个开发工具，通过脚本，完成整体流程的串联和调度。测试环境由测试团队自主控制构建时机（仅在Jenkins中点一下即可），是为了避免自动化构建打乱测试节奏。生产环境的构建由GitLab中Tag的创建触发，会自动部署预生产环境，但生产环境的部署由运维团队自主控制时机（仅在Jenkins中点一下即可），是为了保障上线前的一些数据、配置准备工作到位，避免出现因非代码因素导致的线上问题。</li>
+<li><strong>Docker：</strong>将Web、Java、脚本等代码的构建结果，打包为Docker镜像后，在各个环境中分发部署。Dockerfile在各模块的根目录中，开发环境和测试环境的镜像版本号均使用latest，预产和生产则是通过Tag来定义镜像版本号。</li>
+<li><strong>Swarm：</strong>仅用于开发环境和测试环境的治理，满足开发人员的功能联调和测试人员的功能测试即可。通过在单repo的根目录定义一个docker-stack.yaml脚本，聚合工程内各个模块的部署脚本，因为开发环境和测试环境的镜像版本均使用latest，每次触发部署时仅会检查更新过的镜像进行部署。</li>
+<li><strong>Kubernetes：</strong>仅用于预生产环境和生产环境的治理。部署脚本在独立的工程中由运维开发进行维护，避免敏感信息的泄露，开发和部署的职责分离，各个角色更聚焦。</li>
+<li><strong>Shell：</strong>因为Web工程、APP工程、脚本工程、服务端工程都作为了“单repo工程”的子模块存在于代码库中，需要通过Shell程序来控制、调度各个子模块的构建时机，定义构建执行脚本，但由Jenkins触发脚本的执行，可以理解为将单个工程的构建脚本集中到一起进行管理。</li>
+<li><strong>Python<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="可将Python重构为Shell，或将Shell重构为Python，统一技术栈。">[8]</span></a></sup>：</strong>因为预生产环境与生产环境的镜像版本是不对等的，当完成预生产集成测试后，仅需要将变更过的镜像部署至生产环境，且预生产的版本号会存在覆盖的情况（如：集成测试发现问题，重新构建了新的版本），所以通过脚本程序来记录每次预生产的部署，当进行一键发布生产环境时，控制发布到生产的镜像范围和版本。</li>
+</ul>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="多环境"><a href="#多环境" class="headerlink" title="多环境"></a>多环境</h2><p>目前团队使用4个环境，后续根据研发团队需要，可能会增加新的环境（如：性能测试环境等）</p>
+<p><strong>4个环境分别为：</strong></p>
+<ul>
+<li><strong>开发环境（dev）</strong><ul>
+<li>说明：仅保障技术架构完整的最小化部署环境。</li>
+<li>对应分支：dev</li>
+<li>用途：主要用于支撑开发人员在需求开发或缺陷修复时，进行自测、联调等场景。</li>
+<li>网关验签：关闭</li>
+<li>构建部署的触发时机：特性分支合并至dev分支时，自动触发构建及部署，仅构建并部署变更模块。</li>
+</ul>
+</li>
+<li><strong>测试环境（test）</strong><ul>
+<li>说明：仅保障功能完整的最小化部署环境。</li>
+<li>对应分支：test</li>
+<li>用途：主要面相测试团队，对提测的需求或缺陷开展功能测试，接口测试等。在迭代测试收尾阶段，也可面相产品或业务团队提前开展验收工作。</li>
+<li>网关验签：开启（在进行性能测试、接口自动化测试时，可手动关闭）</li>
+<li>构建部署的触发时机：测试团队手动触发test分支的构建及部署，仅构建并部署上次手动触发后的变更模块。</li>
+</ul>
+</li>
+<li><strong>预生产环境（pre）</strong><ul>
+<li>说明：与生产环境的部署架构、技术中间件、数据、配置等基本一致的最小化部署环境。</li>
+<li>对应分支：master</li>
+<li>用途：主要面向测试、运维及验收团队，进行版本（多特性）集成测试、需求验收、部署前的数据及配置的变更验证等。</li>
+<li>网关验签：开启</li>
+<li>构建部署的触发时机：在代码库创建Tag后，自动触发Tag代码的构建及部署，仅构建并部署上次创建Tag后的变更模块。</li>
+</ul>
+</li>
+<li><strong>生产环境（prod）</strong><ul>
+<li>对应分支：master</li>
+<li>用途：提供给真实用户使用。</li>
+<li>网关验签：开启</li>
+<li>构建部署的触发时机：运维或开发团队手动触发部署，除APP需要手动构建外，其它模块不会进行新的构建，使用预生产环境的镜像进行生产环境的部署，仅部署与预生产环境存在版本差异的模块。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tips：</strong></p>
+<ul>
+<li>各环境的APP安装包均需要手动触发构建，可以根据需要选择构建参数（是否加固、所属环境、证书），生产测试包和生产包的加固为必选项。</li>
+<li>各环境的APP安装包的分发地址会附在构建通知中，格式：https:&#x2F;&#x2F;域名&#x2F;[系统名]-[ios&#x2F;android]-[环境代号]，另外，生产环境有生产测试包和生产包2个分发地址。</li>
+<li>开发人员不要通过本地开发机将服务注册至测试环境，容易干扰测试执行，也容易污染测试环境数据。有必要时，会控制注册中心的IP白名单来杜绝。</li>
+</ul>
+<h2 id="单repo工程结构规划"><a href="#单repo工程结构规划" class="headerlink" title="单repo工程结构规划"></a>单repo工程结构规划</h2><p><strong>单repo工程</strong>：除了基础技术组件（如：网关、三方技术中间件）、基础公共模块（如：公共模块、插件等）、部署脚本的代码<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这部分工程也可以放到单repo结构中管理，但抽离的部分属于在多系统之间共用的（由大系统边界划分多个单repo工程），代码库的稳定性高，更新频率很低，通常由公线开发组负责维护。">[9]</span></a></sup>，其它业务类的前端和后端工程，均通过一个代码仓库进行管理，该仓库内部通过子模块（文件夹）的方式，将各前后端模块进行分隔。</p>
+<p>示例如下：</p>
+<p><img src="/2020/03/02/developer/manage/single-repo-dev-mode/index/%E5%8D%95repo%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84%E8%A7%84%E5%88%92.jpg" alt="单repo工程结构规划"></p>
+<p><strong>说明</strong></p>
+<ul>
+<li>backend或services目录中集中存储后端工程，划分二级目录按服务大领域进行分类。</li>
+<li>frontend目录中集中存储了各类前端工程，包括App、Web等技术栈不同的工程。</li>
+<li>ci.sh是对子模块进行编译调度的入口脚本，与Jenkins集成使用，控制子模块在各个环境中仅对变更模块进行编译构建。</li>
+<li>ci-app.sh<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="因为移动端工程打包采用手动触发，且在macOS系统环境中编译，因此与自动触发脚本分离。">[10]</span></a></sup>控制App移动端工程编译构建的入口脚本，与Jenkins集成使用。</li>
+<li>每个子模块均有自己的ci-build.sh脚本，用来定义当前模块具体的编译、打包脚本。</li>
+<li>cd.py是控制预生产环境与生产环境个子模块版本的差异化发布脚本，与Jenkins集成使用，完成预生产与生产的一键部署。</li>
+<li>容器化的工程模块中采用jib插件定义镜像的构建，部署脚本统一放到根目录的docker-stack.yaml中，供docker swarm部署至开发环境和测试环境。</li>
+</ul>
+<p><strong>研发人员操作步骤指引</strong></p>
+<ol>
+<li>通过git仓库地址，将代码仓库clone至本地（用git命令或IDEA或任何带有git插件的开发工具均可）</li>
+<li>可以使用IDEA这类满足各类技术栈工程的集成开发工具，直接加载“单repo工程”的根目录，对其子模块进行代码编写；也可根据需要或喜好，选择适用于指定工程类型的垂直技术栈开发工具，打开某个子模块的目录即可；</li>
+<li>无论是通过哪种开发工具，打开根目录还是打开内部子模块目录，均可正常编写代码、进行git操作，不受目录层级影响；</li>
+</ol>
+<p><em>工程中涉及到的持续集成脚本及关键点，详见附录中的”关于DevOps“章节</em></p>
+<h2 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h2><p>约定分支管理策略的目的，是让多人团队在多任务的环境下，可以在同一个代码库中更流畅、更灵活的进行协作，并且模式具备一定的扩展性，在团队已有认知的基础上进行优化，避免不必要的认知开销。需要综合考虑产品架构、技术架构、组织架构、发布模式等因素。</p>
+<p>分支管理有一些成熟的策略：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/get-started/quickstart/github-flow">Github Flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/topics/gitlab_flow.html">GitLab Flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://trunkbaseddevelopment.com/">Trunk-based development</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/159666.html">AGit-Flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/852617">Aone Flow</a></li>
+</ul>
+<p>在“单repo开发模式”中的分支管理策略与AoneFlow、GitLab Flow近似但又略有不同，是一种固定了环境分支，通过从master拉取特性分支，随着特性在研发流程中的推进，将特性分支逐步向上游环境合并，最终通过标签确定发布生产代码的策略。</p>
+<p>更适用于当前的产品架构、发布模式和组织架构，对代码在各个系统环境、各个研发环节的流转具有一定约束的同时也有较高的灵活性。</p>
+<p>在该分支策略中，有“环境分支”、“特性分支”、“发布标签”这三类“分支”：</p>
+<p><strong>环境分支</strong></p>
+<p>均为<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/user/project/protected_branches.html">保护分支</a>，各角色均无法直接向此分支提交代码<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="若GitLab的“合并冲突工具”不适用于团队，当特性分支分支合并至环境分支存在代码冲突时，可以在本地开发机，将特性分支合并到环境分支，解决冲突后，将环境分支进行提交。此时需要对环境分支向合并者（Maintainer）开启提交权限。">[11]</span></a></sup>，但允许发起合并请求，将代码合并至环境分支。</p>
+<ul>
+<li><strong>dev：</strong>开发分支，Developer与Maintainer均可Merge。在CI中，dev分支对应开发环境的构建流程，与开发环境部署的代码始终保持一致。</li>
+<li><strong>test：</strong>测试分支，只有Maintainer可以Marge。在CI中，test分支对应测试环境的构建流程，与测试环境部署的代码保持一致或领先。</li>
+<li><strong>master&#x2F;main：</strong>生产分支，只有Maintainer可以Marge。在CI中，master分支对应生产环境的构建流程，与预生产和生产环境部署的代码保持一致或领先。</li>
+</ul>
+<p><strong>特性分支</strong></p>
+<p>均为普通分支<sup id="fnref:12"><a href="#fn:12" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="当出现特性分支代码已完成开发并测试通过后，但需要等待较长时间发布，为避免分支被污染（合并错误、错误提交代码等），可将特性分支临时设置为保护分支。">[12]</span></a></sup>，各角色可根据需要随时创建或删除。特性分支均从master分支创建出来，特性分支可以向环境分支合并，环境分支只有在特殊情况可以向特性分支合并<sup id="fnref:13"><a href="#fn:13" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="除非存在持续周期很长的特性分支，为了保障当前特性分支中的代码在将来合并至生产分支的有效性，则可以将master分支合并至特性分支，从而同步生产环境已发布的代码。">[13]</span></a></sup>。特性分支可以与其它特性分支进行合并，以便应对需求合并或代码关联的情况。每个特性分支均应与看板中至少一个卡片相关，通过分支名称建立与卡片的关系，详见后文“规范&amp;约定”。</p>
+<ul>
+<li><strong>feature-*：</strong>需求分支，用于承载需求开发过程中产生的代码，通常，一个feature分支至少对应一个“需求”类型的卡片。</li>
+<li><strong>hotfix-*：</strong>修复分支，仅用于承载线上Bug修复过程中产生的代码，通常，一个hotfix分支仅对应一个“线上异常”类型的卡片。</li>
+</ul>
+<blockquote>
+<p><strong>命名规范</strong><sup id="fnref:14"><a href="#fn:14" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="原则上以卡片编号对应，若特殊情况下无卡片是，例如备份类的分支，则可以自定义命名规则，但不要与当前约定产生冲突，保持良好的命名结构即可。">[14]</span></a></sup> </p>
+<ul>
+<li><p>特性分支</p>
+<p>小写<code>feature</code>开头 + <code>-</code> + 领域缩写（可选，自行约定<sup id="fnref:15"><a href="#fn:15" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="领域缩写不要太长，可以是：产品、团队、模块、业务领域等，目的是为了将分支进行分类管理，便于日常检索。">[15]</span></a></sup>） + 	<code>#需求卡片编号</code>（对应多个需求卡片时不用特殊符号分隔）</p>
+<p>例如：<code>feature-oms#100</code>、<code>feature-oms#192#200</code>、 <code>feature-#32</code></p>
+</li>
+<li><p>修复分支</p>
+<p>小写<code>hotfix</code>开头 + <code>-</code> + 领域缩写（可选，自行约定<sup id="fnref:15"><a href="#fn:15" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="领域缩写不要太长，可以是：产品、团队、模块、业务领域等，目的是为了将分支进行分类管理，便于日常检索。">[15]</span></a></sup>） + 	<code>#线上异常卡片编号</code></p>
+<p>例如：<code>hotfix-oms#99</code>、<code>hotfix-oms#1#3</code>、 <code>feature-#66</code></p>
+</li>
+</ul>
+</blockquote>
+<p><strong>发布标签</strong></p>
+<p>均从master分支创建，且只有Maintainer角色可以创建，通常由指定开发负责人完成标签创建，并推进版本发布后续事宜。</p>
+<ul>
+<li><strong>v*：</strong>版本标签，用于标记要在生产环境中部署的代码。</li>
+</ul>
+<blockquote>
+<p><strong>命名规范</strong><sup id="fnref:16"><a href="#fn:16" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="当日递增，确保一天内发多个版本不冲突，可根据团队的发版规模，制定序列号的位数。">[16]</span></a></sup></p>
+<p>小写<code>v</code>开头 + <code>yyyyMMdd</code>（Tag的创建时间） + 2位的序列号。</p>
+<p>例如：<code>v2020030901</code></p>
+</blockquote>
+<p><strong>示意图</strong></p>
+<p><img src="/2020/03/02/developer/manage/single-repo-dev-mode/index/%E5%88%86%E6%94%AF%E7%AD%96%E7%95%A5.jpg" alt="分支策略"></p>
+<p>从开发人员的角度，一个需求从开发到上线的整个过程大致为：</p>
+<p>​		<strong>阶段：实现</strong></p>
+<ol>
+<li><p>Developer在看板中被分配或领取了卡片（#1）。</p>
+</li>
+<li><p>Developer根据命名规范，从master分支创建一个特性分支（feature-#1）。</p>
+</li>
+<li><p>完成代码的开发，并提交至特性分支（feature-#1）。</p>
+</li>
+<li><p>在本地对所开发的代码进行自测，将修改的代码提交至特性分支（feature-#1）。</p>
+<p><strong>阶段：联调</strong></p>
+</li>
+<li><p>Developer将特性分支（feature-#1）和并至开发分支（dev），此时会自动触发开发分支的差异化构建，等待构建通知。</p>
+</li>
+<li><p>收到开发环境部署完成的通知后，继续进行自测，并根据需要，与其他关联模块、上下游业务、前后端系统进行联调。</p>
+</li>
+<li><p>将修改的代码提交至特性分支（feature-#1），并合并至开发分支（dev），持续自测、联调，直至达到可以提测的程度。</p>
+<p><strong>阶段：测试、验收</strong></p>
+</li>
+<li><p>Developer进行“提测”，Maintainer对提测的代码完成Review后，将特性分支（feature-#1）合并至测试分支（test），并在看板中移动对应卡片。</p>
+</li>
+<li><p>测试团队按自己的规律，查看看板中是否有新提测的卡片或新修复的Bug，并择机手动触发测试环境的差异化构建。</p>
+</li>
+<li><p>测试或验收过程中，对产生的“内部测试Bug”进行修复，将修改的代码提交至Bug所属的特性分支（feature-#1），Developer自测无问题后，由Maintainer<sup id="fnref:17"><a href="#fn:17" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="通常，拥有代码合并权限的人员（Maintainer）同时也是开发人员，也会负责需求的开发，当Maintainer提交的代码需要合并时，虽然自己有权限，但应找其他Maintainer进行Code Review后，由其它Maintainer完成合并。">[17]</span></a></sup>走查后，将修复代码合并至测试分支（test）。</p>
+</li>
+<li><p>重复“9到10”，直至测试、验收通过。</p>
+<p><strong>阶段：上线</strong></p>
+</li>
+<li><p>Maintainer将特性分支（feature-#1）合并至生产分支（master）。</p>
+</li>
+<li><p>Maintainer将待发布版本的所有特性分支合并完成后，在生产分支（master）上创建标签（Tag），等待构建通知。</p>
+</li>
+<li><p>运维团队根据研发团队提供的部署变更说明，对预生产环境进行数据及配置的变更。</p>
+</li>
+<li><p>收到预生产环境部署完成的通知后，测试团队进行集成测试。若集成测试中发现Bug，则重复“9至13”，直至集成测试通过。</p>
+</li>
+<li><p>运维团队根据研发团队提供的部署变更说明，对生产环境进行数据及配置的变更。然后在Jenkins中触发一键部署，完成生产环境（后端服务及Web）的部署。</p>
+</li>
+<li><p>若有移动端发布，则测试团队需要进行生产环境验证（仅版本升级验证即可），测试通过后，运维将APP上传至应用市场，等待审核。若版本不兼容，则视APP的上架情况，择机开启强制升级。</p>
+</li>
+</ol>
+<p>操作细节在另一篇文章<a href="/2020/03/02/developer/manage/single-repo-dev-mode-detailed/index/" title="《单repo开发模式指南 - 详细操作》">《单repo开发模式指南 - 详细操作》</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="规范-amp-约定"><a href="#规范-amp-约定" class="headerlink" title="规范&amp;约定"></a>规范&amp;约定</h2><ul>
+<li><p>服务层之间的引用约定</p>
+<ol>
+<li>应用领域服务层：面向前台产品的服务</li>
+<li>管理领域服务层：面相后台产品的服务</li>
+<li>基础领域服务层：通用服务，逐步沉淀为业务中台</li>
+</ol>
+<p>约定3个服务层中的服务间接口调用的依赖如下：</p>
+<ul>
+<li><p>各层的内部服务之间，可以相互调用接口</p>
+</li>
+<li><p><code>应用领域服务层</code>和<code>管理领域服务层</code>之间，不可跨层调用接口</p>
+</li>
+<li><p><code>应用领域服务层</code>和<code>管理领域服务层</code>中的服务可以调用<code>基础领域服务层</code>中服务的接口，但反之则不可以。</p>
+</li>
+</ul>
+</li>
+<li><p>代码审查约定</p>
+<p>审查时机：</p>
+<ol>
+<li>当特性分支（feature、hotfix）合并至测试分支（test）时，进行代码<strong>审查</strong></li>
+<li>当特性分支（feature、hotfix）合并至生产分支（master）时，进行代码<strong>走查</strong></li>
+</ol>
+<p>审查依据：</p>
+<ol>
+<li>是否符合对该特性的软件设计</li>
+<li>代码是否符合团队总结的技术规范和最佳实践</li>
+<li>代码是否具备良好的可维护性和可扩展性</li>
+</ol>
+<p><em>可根据各自团队的组织架构，明确代码审查的方式、工具、人员等<sup id="fnref:18"><a href="#fn:18" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="例如，对于前后端技术栈分离且产品架构分前后台两类产品的团队，人员分为前端一组、后端一组、后台全栈的一组，需求根据实现需要，拆分任务卡片到各组，各组成员提交的代码，可以让该组组长作为负责代码审查的人员，组长提交的代码则由副组长进行审查。">[18]</span></a></sup>。</em></p>
+</li>
+<li><p>钉钉&#x2F;邮件通知</p>
+<p>在整个流程中，有些动作会触发CICD构建任务，构建结果会通过即时通讯工具发送至对应的“环境构建通知群”中，通知内容包括是否构建成功、构建的分支、版本、变更内容等关键信息，便于让团队中的每个人及时了解、同步所关心环境的变更情况。</p>
+<p>除此之外，通知还可以在下列事件发生时触发，个人可以根据需要，申请创建通知，以便及时开展相关工作：</p>
+<ul>
+<li>对于需要特别关注的需求（紧急的、特别重要的），开发人员提交了Merge Request时通知。可以驱动代码审查人员可以开始处理审查合并；</li>
+<li>对于需要特别关注的需求（紧急的、特别重要的），开发人员在特性分支中提交了代码时通知。可以让团队中的每个人和进度的推进者，更快的知道大家在解决的问题；</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+<h2 id="灵活运用"><a href="#灵活运用" class="headerlink" title="灵活运用"></a>灵活运用</h2><h3 id="关于工程结构的灵活运用"><a href="#关于工程结构的灵活运用" class="headerlink" title="关于工程结构的灵活运用"></a>关于工程结构的灵活运用</h3><p>在基于领域服务、前后端分离的技术架构风格下，工程结构的划分与“组织架构”、“团队规模”、“产品（业务）架构”、“需求管理（粒度、所属产品）”、“业务及系统的成熟度”、“前端技术栈”等方面均有相互影响的关系。</p>
+<p>随着上述各因素的逐步成熟、稳定和规范化，单repo可向下述方向发展：</p>
+<ul>
+<li>当“业务中台”或“数据中台”概念的成熟度达到中等水平，可将相关服务抽离为一个新的单repo工程，由专门的团队负责该领域的演进；</li>
+<li>当产品策划成熟度达到较高水平，可以从前台系统和后台系统的维度，将代码库切分为两套，分别由不同团队负责各自领域的演进；</li>
+</ul>
+<p>可能的发展节奏：</p>
+<ol>
+<li>初期：单体。</li>
+<li>中期：随着非功能需求重要性的提升，技术架构往微服务风格演进，此阶段，单repo工程结构中包含后台产品、前台产品、若干中台产品。</li>
+<li>远期：随着业务稳定，并往精细化发展，团队规模也随之提升，此阶段的单repo工程结构，一方面会按照前后台系统领域甚至业务子领域进行分离，另一方面也会逐步沉淀出独立的中台代码库。</li>
+</ol>
+<p>###关于分支策略的灵活运用</p>
+<ul>
+<li>通过对特性分支命名的约定，可以在单repo代码库隔离不同领域的产品（feature-产品领域-xxx），不同的团队（feature-团队名-xxx），以满足多产品、多团队在同一个代码库中协作（不推荐）。团队越多，在单repo中工作的适应程度也会不一样，如果用木桶效应做比喻，分支管理方式会向木桶的“短板”靠拢，此时团队需要适应“短板”团队的工作方式，这可能会弱化或丧失该模式可能带来的好处。</li>
+<li>特性分支的粒度最小可以是一个需求，最大可以是一个里程碑，这取决于实际需求、产品发展阶段、组织架构等多种因素，仍然可以通过对分支命名来定义。分支所承载需求的颗粒度越大时，越会弱化该模式可能带来的好处，团队需要在不同价值之间进行权衡。</li>
+</ul>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
+<li>开发人员结合看板，利用好GitLab右上角的To-Do List、Marge requests等工具，可以统筹管理个人相关的开发任务，详细参考GitLab相关文档。</li>
+<li>发布清单：每个环境在构建的时候，都会产生构建清单，标明了有哪些工程模块产生了变更。当要进行生产环境的发布时，这个清单可以作为要发布内容的依据。除移动端工程，其它工程在开发、测试、预生产这三个环境中会自动发布变更。</li>
+</ul>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="如果代码提错了分支怎么办？"><a href="#如果代码提错了分支怎么办？" class="headerlink" title="如果代码提错了分支怎么办？"></a>如果代码提错了分支怎么办？</h3><p>有A、B两个分支，本来应该提交到A分支的代码，提交（commit）到了B分支。</p>
+<p><strong>当错误提交仅在本地仓库时：</strong></p>
+<ul>
+<li>方式1：在本地将最新A分支Checkout，将B分支中提错代码的提交点Cherry-Pick到A分支，pushA分支，删除本地B分支。</li>
+<li>方式2：代码不多时，在A分支中重写代码，然后删除本地B分支，说不定重写的过程中还能发现更优解。</li>
+</ul>
+<p><strong>当错误提交推送到了远程仓库时：</strong></p>
+<p>在本地将最新A分支Checkout，将B分支中提错代码的提交点Cherry-Pick到A分支，push A分支；在本地将最新B分支Checkout，对B分支中提错代码的提交点进行Revert Commit操作，push B分支。</p>
+<h3 id="分支合并错了怎么办？"><a href="#分支合并错了怎么办？" class="headerlink" title="分支合并错了怎么办？"></a>分支合并错了怎么办？</h3><p>除开发环境外都开启了分支保护，只有拥有Maintainer权限的成员可以操作分支的Merge Request。另外，还有检查工具对创建的合并请求进行检查，当有错误的分支合并关系时会给出提示，基本确保了分支合并操作的合规性。但仍然有可能出现误操作：</p>
+<p>有A、B、C，三个分支，A分支需要合并到C分支，但误操作合并到了B分支时：</p>
+<ul>
+<li>方式1（建议）：若使用GitLab创建Merge Request进行分支操作时，则在具体的合并请求中详情中，通过按钮可以操作本次合并的还原，再重新合并至正确的目标分支。</li>
+<li>方式2：在B分支中，通过Git的revert操作，将错误的提交点进行恢复（与代码提错了分支的处理方式类似，但可能包含了多个提交点），再重新合并至正确的目标分支。</li>
+</ul>
+<h3 id="开发过程中发现与其它需求分支有耦合（分支之间存在代码依赖），怎么办？"><a href="#开发过程中发现与其它需求分支有耦合（分支之间存在代码依赖），怎么办？" class="headerlink" title="开发过程中发现与其它需求分支有耦合（分支之间存在代码依赖），怎么办？"></a>开发过程中发现与其它需求分支有耦合（分支之间存在代码依赖），怎么办？</h3><p>场景：有A、B两个需求，分别创建了feature-xxx#a、feature-xxx#b两个分支，开发过程中，发现B需求中的一个接口需要依赖A需求中新增的接口，或者发现B需求中的页面需要A需求中的页面作为前置页面等，因需求变更或需求分析未到位产生的需求耦合情况。</p>
+<p>创建一个新的分支（feature-xxx#a#b），将feature-xxx#a、feature-xxx#b分支分别合并到新的分支中，并删除feature-xxx#a、feature-xxx#b分支。</p>
+<p>最后，最好在A、B需求的卡片上表明需求的依赖，“提测”、“发布”等动作时，A、B两个需求需要同步进行。</p>
+<h3 id="如果需要将某个环境恢复至特定版本的代码，怎么办？"><a href="#如果需要将某个环境恢复至特定版本的代码，怎么办？" class="headerlink" title="如果需要将某个环境恢复至特定版本的代码，怎么办？"></a>如果需要将某个环境恢复至特定版本的代码，怎么办？</h3><p>场景：测试环境（test分支）需要对某个特性分支，基于生产环境的代码，单独进行测试</p>
+<ol>
+<li><p>创建test分支的备份分支test-bak-yyyyMMddxx</p>
+</li>
+<li><p>删除test分支，并基于最新master分支创建新的test分支</p>
+</li>
+<li><p>合并需要测试的特性分支</p>
+</li>
+<li><p>触发测试环境的构建</p>
+<p><em>此时会对之前test分支的代码和新创建test分支的代码的差异模块进行构建，并部署至测试环境</em></p>
+</li>
+<li><p>完成测试后，将新创建的test分支删除</p>
+</li>
+<li><p>基于第一步备份的分支，创建test分支</p>
+</li>
+<li><p>删除test分支的备份分支</p>
+</li>
+<li><p>再次触发测试环境的构建</p>
+</li>
+</ol>
+<p>其它环境操作类似，根据需要回退的目的不同，在选择回退点的方式上略有区分。另外，生产环境的代码不建议进行此操作，应进行紧急修复。</p>
+<h3 id="如果只想回退部分模块的代码到某个版本，怎么办？"><a href="#如果只想回退部分模块的代码到某个版本，怎么办？" class="headerlink" title="如果只想回退部分模块的代码到某个版本，怎么办？"></a>如果只想回退部分模块的代码到某个版本，怎么办？</h3><p>在IDEA或其他Git管理工具中，根据路径（Paths）过滤提交点，选中需要回退的提交点，执行Revert Commit操作。</p>
+<h3 id="新增一个工程模块时，需要做什么？"><a href="#新增一个工程模块时，需要做什么？" class="headerlink" title="新增一个工程模块时，需要做什么？"></a>新增一个工程模块时，需要做什么？</h3><ol>
+<li>在工程中的适合位置，增加一个文件夹。</li>
+<li>在新增加的文件夹中，初始化该模块的框架代码。</li>
+<li>根据新增模块的编译方式，在该模块文件夹的根目录下，编写该模块的编译脚本（名称固定为：ci-build.sh）。</li>
+<li>修改“单Repo工程”根目录的编译脚本（ci.sh），增加新增模块的相对路径。</li>
+<li>修改“单Repo工程”根目录的部署脚本（docker-stack.yaml），定义新模块在开发环境和测试环境通过docker swarm的部署。</li>
+<li>创建预生产环境和生产环境的部署任务（Jenkins）和k8s部署脚本（目前单独抽离了xxx-deploy工程管理k8s部署脚本）</li>
+<li>修改“单Repo工程”根目录的脚本（cd.py），增加新增模块的相对路径和Jenkins部署任务的对照关系</li>
+</ol>
+<p><em>若该模块有新增的环境变量，需在Jenkins对应的任务中添加。</em></p>
+<p><em>该步骤同样适用于现有模块的名称变更。</em></p>
+<p><em>后续会将ci.sh和cd.py的能力合并到一个脚本中，k8s部署脚本也会放回各个模块中，且无需为模块单独建立部署任务。</em></p>
+<h3 id="对特性分支的测试通过了，但特性分支合并到环境分支后，出现了问题，怎么办？"><a href="#对特性分支的测试通过了，但特性分支合并到环境分支后，出现了问题，怎么办？" class="headerlink" title="对特性分支的测试通过了，但特性分支合并到环境分支后，出现了问题，怎么办？"></a>对特性分支的测试通过了，但特性分支合并到环境分支后，出现了问题，怎么办？</h3><p>首先排除是否是运行环境存在可用性异常、脏数据或数据缺失、终端兼容性而导致的问题，否则考虑下列可能：</p>
+<ul>
+<li>是否存在该需求（分支）依赖的其它需求（分支），且未合并至当前环境分支。</li>
+<li>是否在合并代码时存在冲突，且未按预期解决代码的冲突（代码合并过程中出错）。</li>
+</ul>
+<h3 id="特性分支合并到环境分支时，如果出现代码冲突，怎么办？"><a href="#特性分支合并到环境分支时，如果出现代码冲突，怎么办？" class="headerlink" title="特性分支合并到环境分支时，如果出现代码冲突，怎么办？"></a>特性分支合并到环境分支时，如果出现代码冲突，怎么办？</h3><p>找到冲突代码对应的两个开发人员，让让两个开发人员进行充分沟通后完成冲突代码的合并。过程中应保障不会产生新的代码逻辑或导致代码缺失。</p>
+<h3 id="当无法通过CI工具进行编译时怎么办？"><a href="#当无法通过CI工具进行编译时怎么办？" class="headerlink" title="当无法通过CI工具进行编译时怎么办？"></a>当无法通过CI工具进行编译时怎么办？</h3><p>若时间允许，则首选等待ci工具的修复，但碰到卡时间点的上线，且ci服务器挂了的时候，则需要在开发人员中找到一台具备对所需发布模块进行编译、构建镜像的开发机，将指定分支&#x2F;Tag的代码签出，在本地，手动触发ci脚本的执行。</p>
+<p><em>需要注意对应环境的环境变量，生产环境因为涉密，环境变量不暴露。在开发机中进行CICD，一方面需要填对，另一方面也需要确保不要泄露敏感信息。</em></p>
+<h3 id="当我需要对全部子工程进行编译时怎么办？"><a href="#当我需要对全部子工程进行编译时怎么办？" class="headerlink" title="当我需要对全部子工程进行编译时怎么办？"></a>当我需要对全部子工程进行编译时怎么办？</h3><ul>
+<li>方式1：联系具有Jenkins维护权限的人（运维工程师），将对应环境的Jenkins编译任务中的workspece文件夹清空后，再次自动或手动触发编译任务时，即会进行全部子工程的编译（上次构建的代码库快照被清除，对比结果为全部代码变更了）。</li>
+<li>方式2：创建一个“特殊”的feature分支，并对需要进行构建的模块，修改其模块根目录中的任意文件（如在README.md中加一个空格），提交并合并到环境分支中，即可触发变动模块的构建。注意：为了保障各个环境代码（提交点）的一致性，减少代码冲突发生的可能性，此feature分之应合并到每个环境分支中。</li>
+</ul>
+<h3 id="如何减少合并冲突？"><a href="#如何减少合并冲突？" class="headerlink" title="如何减少合并冲突？"></a>如何减少合并冲突？</h3><p>推迟特性分支创建时机。从主分支（master）创建新的特性分支时，在需求或线上异常卡片流转到需要编写代码的阶段时再创建，此时创建的特性分支可以最大化的接近生产环境的代码。过早创建可能会增加落后于主分支的代码范围，从而增加合并时产生冲突的概率。</p>
+<p>保持特性分支与主分支的相似性。若特性分支有大量落后于主分支（master）的提交，则可以将主分支向特性分支进行合并，或从主分支重建一个特性分支，并Cherry-Pick原特性分支的提交点到重建的特性分支中。</p>
+<h3 id="对通过验收清单中的部分需求进行发布时，是否需要重新测试？"><a href="#对通过验收清单中的部分需求进行发布时，是否需要重新测试？" class="headerlink" title="对通过验收清单中的部分需求进行发布时，是否需要重新测试？"></a>对通过验收清单中的部分需求进行发布时，是否需要重新测试？</h3><p>场景：A、B、C、D是4个测试完成，并通过产品验收的需求，团队决定先将B、D这2个需求发布上线。此时，将B、D对应的特性分支合并到master，但测试环境是集成了A、B、C、D四个特性分支的代码，是否需要对B、D重新测试？</p>
+<p>需要重新测试。在发布到生产环境前的预生产环境集成测试是重要的上线前测试，除了对上线前需要准备的数据、配置等进行验证、确保依赖的需求可以同步上线外，其目的也包括对不同需求组合的集成，进行验证，避免因为合并代码冲突时、不同功能组合所导致的问题，但测试的范围可以是对主流程的验证，在没有自动化测试的支撑时，无需完成全部测试用例的执行。</p>
+<p>当然，最好是团队对版本范围有良好的把控，尽可能确保产品计划的稳定。</p>
+<h3 id="如果有紧急的线上异常需要修复，此时测试环境正在进行其他需求的测试，且在测试初期，存在功能不通的情况时，怎么办？"><a href="#如果有紧急的线上异常需要修复，此时测试环境正在进行其他需求的测试，且在测试初期，存在功能不通的情况时，怎么办？" class="headerlink" title="如果有紧急的线上异常需要修复，此时测试环境正在进行其他需求的测试，且在测试初期，存在功能不通的情况时，怎么办？"></a>如果有紧急的线上异常需要修复，此时测试环境正在进行其他需求的测试，且在测试初期，存在功能不通的情况时，怎么办？</h3><p>测试人员与开发人员分析异常问题的修复代码是否与正在测试的需求有关联，若无关联，可以在测试环境单独验证线上异常并完成后续环境的验证。若有关联，或上游功能不通时，可以跳过测试环境，将线上异常分支单独合并至master，在预生产进行测试。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">A、B两个产品线并行开发，且无依赖，A产品线已完成开发，并通过测试，可以上线，但B产品线未完成开发。<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">需要通过Git的Cherry-pick命令，将修复线上异常时涉及到的一个或多个Commit“挑选”到各环境分支或release分支，最后到master分支，才能完成上线。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Cherry-pick命令会在目标分支创建新的Commit，会导致环境分支间的合并需要解决不必要的代码冲突（或对环境分支进行rebase变基）。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">需要注意的是，重构若与业务开发同步进行时，重构面积越大，越容易出现分支合并时的冲突，需要考虑重构时机，降低合并冲突带来的额外开销。<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">开发人员可以根据需要，只在开发工具中打开某一个前端工程目录作为workspace，或只将services目录作为workspace，又或某个具体的服务目录作为workspace。<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">需求颗粒度的大小会影响代码修改范围，从而增加合并时发生代码冲突的可能性。需求的耦合度影响不同特性分支进行开发、联调、测试、发布时的便利性，特性分支应尽可能的独立。<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">30人左右的团队，在一个常规迭代同时进行的分支大概会有20至60个。<a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">可将Python重构为Shell，或将Shell重构为Python，统一技术栈。<a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这部分工程也可以放到单repo结构中管理，但抽离的部分属于在多系统之间共用的（由大系统边界划分多个单repo工程），代码库的稳定性高，更新频率很低，通常由公线开发组负责维护。<a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">因为移动端工程打包采用手动触发，且在macOS系统环境中编译，因此与自动触发脚本分离。<a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">若GitLab的“合并冲突工具”不适用于团队，当特性分支分支合并至环境分支存在代码冲突时，可以在本地开发机，将特性分支合并到环境分支，解决冲突后，将环境分支进行提交。此时需要对环境分支向合并者（Maintainer）开启提交权限。<a href="#fnref:11" rev="footnote"> ↩</a></span></li><li id="fn:12"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">12.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">当出现特性分支代码已完成开发并测试通过后，但需要等待较长时间发布，为避免分支被污染（合并错误、错误提交代码等），可将特性分支临时设置为保护分支。<a href="#fnref:12" rev="footnote"> ↩</a></span></li><li id="fn:13"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">13.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">除非存在持续周期很长的特性分支，为了保障当前特性分支中的代码在将来合并至生产分支的有效性，则可以将master分支合并至特性分支，从而同步生产环境已发布的代码。<a href="#fnref:13" rev="footnote"> ↩</a></span></li><li id="fn:14"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">14.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">原则上以卡片编号对应，若特殊情况下无卡片是，例如备份类的分支，则可以自定义命名规则，但不要与当前约定产生冲突，保持良好的命名结构即可。<a href="#fnref:14" rev="footnote"> ↩</a></span></li><li id="fn:15"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">15.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">领域缩写不要太长，可以是：产品、团队、模块、业务领域等，目的是为了将分支进行分类管理，便于日常检索。<a href="#fnref:15" rev="footnote"> ↩</a></span></li><li id="fn:16"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">16.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">当日递增，确保一天内发多个版本不冲突，可根据团队的发版规模，制定序列号的位数。<a href="#fnref:16" rev="footnote"> ↩</a></span></li><li id="fn:17"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">17.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">通常，拥有代码合并权限的人员（Maintainer）同时也是开发人员，也会负责需求的开发，当Maintainer提交的代码需要合并时，虽然自己有权限，但应找其他Maintainer进行Code Review后，由其它Maintainer完成合并。<a href="#fnref:17" rev="footnote"> ↩</a></span></li><li id="fn:18"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">18.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">例如，对于前后端技术栈分离且产品架构分前后台两类产品的团队，人员分为前端一组、后端一组、后台全栈的一组，需求根据实现需要，拆分任务卡片到各组，各组成员提交的代码，可以让该组组长作为负责代码审查的人员，组长提交的代码则由副组长进行审查。<a href="#fnref:18" rev="footnote"> ↩</a></span></li></ol></div></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://massaton.github.io">Massless</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://massaton.github.io/2020/03/02/developer/manage/single-repo-dev-mode/index/">https://massaton.github.io/2020/03/02/developer/manage/single-repo-dev-mode/index/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Original/">Original</a><a class="post-meta__tags" href="/tags/R-D-Mode/">R&amp;D Mode</a><a class="post-meta__tags" href="/tags/Efficiency/">Efficiency</a><a class="post-meta__tags" href="/tags/Guide/">Guide</a></div><div class="post_share"><div class="social-share" data-image="/images/default_top_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/black_hole_big.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Massless</div><div class="author-info__description">The Others</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/massaton"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:freecoder@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Life is shorter than you think.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">前述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%A7%88"><span class="toc-number">2.</span> <span class="toc-text">概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">边界图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-number">2.2.</span> <span class="toc-text">工具链</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%8E%AF%E5%A2%83"><span class="toc-number">3.1.</span> <span class="toc-text">多环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95repo%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84%E8%A7%84%E5%88%92"><span class="toc-number">3.2.</span> <span class="toc-text">单repo工程结构规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AD%96%E7%95%A5"><span class="toc-number">3.3.</span> <span class="toc-text">分支策略</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E8%8C%83-amp-%E7%BA%A6%E5%AE%9A"><span class="toc-number">4.1.</span> <span class="toc-text">规范&amp;约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B5%E6%B4%BB%E8%BF%90%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">灵活运用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84%E7%9A%84%E7%81%B5%E6%B4%BB%E8%BF%90%E7%94%A8"><span class="toc-number">4.2.1.</span> <span class="toc-text">关于工程结构的灵活运用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">4.2.2.</span> <span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">4.3.</span> <span class="toc-text">Q&amp;A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BB%A3%E7%A0%81%E6%8F%90%E9%94%99%E4%BA%86%E5%88%86%E6%94%AF%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.1.</span> <span class="toc-text">如果代码提错了分支怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E9%94%99%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.2.</span> <span class="toc-text">分支合并错了怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%8F%91%E7%8E%B0%E4%B8%8E%E5%85%B6%E5%AE%83%E9%9C%80%E6%B1%82%E5%88%86%E6%94%AF%E6%9C%89%E8%80%A6%E5%90%88%EF%BC%88%E5%88%86%E6%94%AF%E4%B9%8B%E9%97%B4%E5%AD%98%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%BE%9D%E8%B5%96%EF%BC%89%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.3.</span> <span class="toc-text">开发过程中发现与其它需求分支有耦合（分支之间存在代码依赖），怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E5%B0%86%E6%9F%90%E4%B8%AA%E7%8E%AF%E5%A2%83%E6%81%A2%E5%A4%8D%E8%87%B3%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.4.</span> <span class="toc-text">如果需要将某个环境恢复至特定版本的代码，怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%83%B3%E5%9B%9E%E9%80%80%E9%83%A8%E5%88%86%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%B0%E6%9F%90%E4%B8%AA%E7%89%88%E6%9C%AC%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.5.</span> <span class="toc-text">如果只想回退部分模块的代码到某个版本，怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B%E6%A8%A1%E5%9D%97%E6%97%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">4.3.6.</span> <span class="toc-text">新增一个工程模块时，需要做什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%E7%9A%84%E6%B5%8B%E8%AF%95%E9%80%9A%E8%BF%87%E4%BA%86%EF%BC%8C%E4%BD%86%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E5%88%B0%E7%8E%AF%E5%A2%83%E5%88%86%E6%94%AF%E5%90%8E%EF%BC%8C%E5%87%BA%E7%8E%B0%E4%BA%86%E9%97%AE%E9%A2%98%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.7.</span> <span class="toc-text">对特性分支的测试通过了，但特性分支合并到环境分支后，出现了问题，怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E5%88%B0%E7%8E%AF%E5%A2%83%E5%88%86%E6%94%AF%E6%97%B6%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%87%BA%E7%8E%B0%E4%BB%A3%E7%A0%81%E5%86%B2%E7%AA%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.8.</span> <span class="toc-text">特性分支合并到环境分支时，如果出现代码冲突，怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87CI%E5%B7%A5%E5%85%B7%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91%E6%97%B6%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.9.</span> <span class="toc-text">当无法通过CI工具进行编译时怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E9%9C%80%E8%A6%81%E5%AF%B9%E5%85%A8%E9%83%A8%E5%AD%90%E5%B7%A5%E7%A8%8B%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91%E6%97%B6%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.10.</span> <span class="toc-text">当我需要对全部子工程进行编译时怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81%EF%BC%9F"><span class="toc-number">4.3.11.</span> <span class="toc-text">如何减少合并冲突？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E9%80%9A%E8%BF%87%E9%AA%8C%E6%94%B6%E6%B8%85%E5%8D%95%E4%B8%AD%E7%9A%84%E9%83%A8%E5%88%86%E9%9C%80%E6%B1%82%E8%BF%9B%E8%A1%8C%E5%8F%91%E5%B8%83%E6%97%B6%EF%BC%8C%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E6%B5%8B%E8%AF%95%EF%BC%9F"><span class="toc-number">4.3.12.</span> <span class="toc-text">对通过验收清单中的部分需求进行发布时，是否需要重新测试？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%89%E7%B4%A7%E6%80%A5%E7%9A%84%E7%BA%BF%E4%B8%8A%E5%BC%82%E5%B8%B8%E9%9C%80%E8%A6%81%E4%BF%AE%E5%A4%8D%EF%BC%8C%E6%AD%A4%E6%97%B6%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%AD%A3%E5%9C%A8%E8%BF%9B%E8%A1%8C%E5%85%B6%E4%BB%96%E9%9C%80%E6%B1%82%E7%9A%84%E6%B5%8B%E8%AF%95%EF%BC%8C%E4%B8%94%E5%9C%A8%E6%B5%8B%E8%AF%95%E5%88%9D%E6%9C%9F%EF%BC%8C%E5%AD%98%E5%9C%A8%E5%8A%9F%E8%83%BD%E4%B8%8D%E9%80%9A%E7%9A%84%E6%83%85%E5%86%B5%E6%97%B6%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">4.3.13.</span> <span class="toc-text">如果有紧急的线上异常需要修复，此时测试环境正在进行其他需求的测试，且在测试初期，存在功能不通的情况时，怎么办？</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;1987 - 2022 By Massless</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadUtterances () {
   let ele = document.createElement('script')
   ele.setAttribute('id', 'utterances_comment')
   ele.setAttribute('src', 'https://utteranc.es/client.js')
